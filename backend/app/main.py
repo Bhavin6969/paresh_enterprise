@@ -1,9 +1,12 @@
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-import logging, sys
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
+import logging, sys, os
 from dotenv import load_dotenv
+
 load_dotenv()
+
 # ✅ Correct import
 from app.contact_router import router as contact_router
 
@@ -31,14 +34,15 @@ async def health_check():
 # ✅ include contact router
 app.include_router(contact_router, prefix="/api")
 
-@app.get("/", tags=["Root"])
-async def root():
-    return {
-        "message": "Welcome to Paresh Enterprises API",
-        "version": "1.0.0",
-        "health_url": "/health",
-        "contact_url": "/api/contact"
-    }
+# 📌 Serve React frontend
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+@app.get("/{full_path:path}")
+async def serve_react(full_path: str):
+    index_path = os.path.join("app", "static", "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    return {"error": "index.html not found"}
 
 if __name__ == "__main__":
     import uvicorn
