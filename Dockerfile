@@ -3,6 +3,9 @@ FROM node:20-alpine AS frontend-build
 
 WORKDIR /frontend
 
+# Install bash (needed for npm scripts) and git (optional for some dependencies)
+RUN apk add --no-cache bash git
+
 # Copy package files and install dependencies
 COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm ci
@@ -10,9 +13,9 @@ RUN npm ci
 # Copy source code
 COPY frontend/ .
 
-# Build using npx (fixes vite permission denied)
-RUN npm run build
-
+# Ensure node_modules/.bin is in PATH and build frontend
+ENV PATH=/frontend/node_modules/.bin:$PATH
+RUN npx vite build
 
 # ---------- Stage 2: Backend ----------
 FROM python:3.11-slim AS backend
@@ -20,7 +23,7 @@ FROM python:3.11-slim AS backend
 WORKDIR /app
 
 # Install Python dependencies
-COPY backend/requirements.txt .
+COPY backend/requirements.txt ./
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
