@@ -11,7 +11,7 @@ RUN npm ci
 COPY frontend/ .
 
 # Build using npx (fixes vite permission denied)
-RUN npx vite build
+RUN npm run build
 
 
 # ---------- Stage 2: Backend ----------
