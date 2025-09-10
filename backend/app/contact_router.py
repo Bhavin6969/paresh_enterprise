@@ -61,16 +61,17 @@ def send_email(form: ContactForm):
 @router.post("/contact")
 async def submit_contact(form: ContactForm):
     try:
-        # Save to DB
         contact_data = form.dict()
-        result = contacts_collection.insert_one(contact_data)
-        print(f"✅ Contact inserted into DB with id: {result.inserted_id}")
+        try:
+            result = contacts_collection.insert_one(contact_data)
+            print(f"✅ Contact inserted into DB with id: {result.inserted_id}")
+        except Exception as db_error:
+            print("⚠️ Database unavailable, skipping DB save:", db_error)
 
-        # Send email (won’t block DB success)
         try:
             send_email(form)
         except Exception as e:
-            print("⚠️ Warning: Email failed but DB insert succeeded.", e)
+            print("⚠️ Warning: Email failed:", e)
 
         return {"message": "Contact form submitted successfully!"}
 
