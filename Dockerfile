@@ -1,10 +1,6 @@
-# ---------- Stage 1: Build Frontend ----------
-FROM node:20-alpine AS frontend-build
+FROM node:20-slim AS frontend-build
 
 WORKDIR /frontend
-
-# Install bash (needed for npm scripts) and git (optional for some dependencies)
-RUN apk add --no-cache bash git
 
 # Copy package files and install dependencies
 COPY frontend/package.json frontend/package-lock.json* ./
@@ -13,9 +9,8 @@ RUN npm ci
 # Copy source code
 COPY frontend/ .
 
-# Ensure node_modules/.bin is in PATH and build frontend
-ENV PATH=/frontend/node_modules/.bin:$PATH
-RUN npx vite build
+# Build using npm (vite binary works here)
+RUN npm run build
 
 # ---------- Stage 2: Backend ----------
 FROM python:3.11-slim AS backend
