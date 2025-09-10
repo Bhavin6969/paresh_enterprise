@@ -1,16 +1,22 @@
+# ---------- Stage 1: Build Frontend ----------
 FROM node:20-slim AS frontend-build
 
 WORKDIR /frontend
 
 # Copy package files and install dependencies
 COPY frontend/package.json frontend/package-lock.json* ./
+
+# Install dependencies
 RUN npm ci
 
-# Copy source code
-COPY frontend/ .
+# Copy frontend source code
+COPY frontend/ ./
 
-# Build using npm (vite binary works here)
-RUN npm run build
+# Ensure all binaries in node_modules/.bin are executable
+RUN chmod +x ./node_modules/.bin/*
+
+# Build frontend using npx to avoid any PATH/permission issues
+RUN npx vite build
 
 # ---------- Stage 2: Backend ----------
 FROM python:3.11-slim AS backend
