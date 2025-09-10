@@ -9,9 +9,9 @@ import traceback
 # ✅ Load env variables
 MONGO_URL = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
 DB_NAME = os.getenv("DATABASE_NAME", "paresh_enterprises")
-EMAIL_USER = os.getenv("EMAIL_USER", "pareshdwivedi9@gmail.com")  # your Gmail
-EMAIL_PASS = os.getenv("EMAIL_PASS", "fnjk qotw nmhy awkx")         # Gmail App Password
-OWNER_EMAIL = os.getenv("OWNER_EMAIL", "paresh_udr@yahoo.in")     # Owner’s email
+EMAIL_USER = os.getenv("EMAIL_USER", "pareshdwivedi9@gmail.com")
+EMAIL_PASS = os.getenv("EMAIL_PASS", "your-app-password")
+OWNER_EMAIL = os.getenv("OWNER_EMAIL", "paresh_udr@yahoo.in")
 
 # ✅ MongoDB connection
 client = MongoClient(MONGO_URL)
@@ -21,21 +21,29 @@ contacts_collection = db["contacts"]
 # ✅ FastAPI Router
 router = APIRouter()
 
-# ✅ Request schema
+# ✅ Expanded Request schema
 class ContactForm(BaseModel):
     name: str
     email: EmailStr
+    subject: str | None = None
     message: str
+    phone: str | None = None
+    company: str | None = None
 
 # ✅ Email sender function
-def send_email(name, email, message):
+def send_email(form: ContactForm):
     try:
-        msg = MIMEText(
+        body = (
             f"📩 New Contact Submission:\n\n"
-            f"👤 Name: {name}\n"
-            f"📧 Email: {email}\n\n"
-            f"📝 Message:\n{message}"
+            f"👤 Name: {form.name}\n"
+            f"📧 Email: {form.email}\n"
+            f"🏢 Company: {form.company or 'N/A'}\n"
+            f"📞 Phone: {form.phone or 'N/A'}\n"
+            f"📝 Subject: {form.subject or 'N/A'}\n\n"
+            f"💬 Message:\n{form.message}"
         )
+
+        msg = MIMEText(body)
         msg["Subject"] = "New Contact Form Submission"
         msg["From"] = EMAIL_USER
         msg["To"] = OWNER_EMAIL
@@ -47,7 +55,7 @@ def send_email(name, email, message):
         print("✅ Email sent successfully")
     except Exception as e:
         print("❌ Email sending failed:", e)
-        traceback.print_exc()  # log detailed error
+        traceback.print_exc()
 
 # ✅ Route
 @router.post("/contact")
@@ -58,9 +66,9 @@ async def submit_contact(form: ContactForm):
         result = contacts_collection.insert_one(contact_data)
         print(f"✅ Contact inserted into DB with id: {result.inserted_id}")
 
-        # Try sending email (won’t block DB success)
+        # Send email (won’t block DB success)
         try:
-            send_email(form.name, form.email, form.message)
+            send_email(form)
         except Exception as e:
             print("⚠️ Warning: Email failed but DB insert succeeded.", e)
 
