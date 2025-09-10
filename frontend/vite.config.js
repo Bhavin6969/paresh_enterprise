@@ -10,6 +10,5 @@ export default defineConfig({
     port: 5173,
     host: "0.0.0.0",
   },
-  // 👇 Add this
-  base: "/",
+  base: "/static/", // <-- serve assets from /static/
 });
