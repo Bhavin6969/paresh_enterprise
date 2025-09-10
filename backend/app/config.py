@@ -9,7 +9,7 @@ class Settings:
         self.algorithm = os.getenv("ALGORITHM", "HS256")
         self.access_token_expire_minutes = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
         self.refresh_token_expire_days = int(os.getenv("REFRESH_TOKEN_EXPIRE_DAYS", "7"))
-        self.allowed_origins = ["http://localhost:3000", "http://localhost:5173", "http://localhost:8080"]
+        self.allowed_origins = ["http://localhost:3000", "http://localhost:5173", "http://localhost:8080", "https://paresh-enterprise.onrender.com"]
         self.environment = os.getenv("ENVIRONMENT", "development")
         self.debug = os.getenv("DEBUG", "true").lower() == "true"
         self.host = os.getenv("HOST", "0.0.0.0")
