@@ -4,8 +4,8 @@ FROM python:3.11-slim
 # Set working directory inside container
 WORKDIR /app
 
-# Copy only requirements first for caching
-COPY requirements.txt .
+# Copy requirements.txt from backend folder
+COPY requirements.txt ./requirements.txt
 
 # Install dependencies
 RUN pip install --no-cache-dir --upgrade pip \
@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 8000
 
 # Run Uvicorn with proper module path
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

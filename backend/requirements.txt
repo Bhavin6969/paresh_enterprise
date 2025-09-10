@@ -6,12 +6,4 @@ python-jose[cryptography]==3.3.0
 bcrypt==4.1.2
 passlib[bcrypt]==1.7.4
 python-dotenv==1.0.0
-fastapi
-uvicorn[standard]
-motor
-pydantic
-python-jose
-passlib[bcrypt]
-flask
-flask-cors
-pydantic[email]
+pydantic[email]==2.4.2
