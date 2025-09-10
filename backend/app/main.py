@@ -1,13 +1,9 @@
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
-import logging, sys, os
-from dotenv import load_dotenv
+from fastapi.responses import FileResponse
+import os
 
-load_dotenv()
-
-# ✅ Correct import
 from app.contact_router import router as contact_router
 
 app = FastAPI(
@@ -16,34 +12,23 @@ app = FastAPI(
     version="1.0.0"
 )
 
-FRONTEND_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"]
-
+# CORS (in production, replace "*" with your actual domain)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=FRONTEND_ORIGINS,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Health check
-@app.get("/health", tags=["Health Check"])
-async def health_check():
-    return {"status": "healthy", "version": "1.0.0", "message": "Backend is running"}
+# Serve static frontend files
+app.mount("/static", StaticFiles(directory="app/static", html=True), name="static")
 
-# ✅ include contact router
+# API routes
 app.include_router(contact_router, prefix="/api")
 
-# 📌 Serve React frontend
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
-
+# React index.html handler (catch-all for React Router)
 @app.get("/{full_path:path}")
 async def serve_react(full_path: str):
     index_path = os.path.join("app", "static", "index.html")
-    if os.path.exists(index_path):
-        return FileResponse(index_path)
-    return {"error": "index.html not found"}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    return FileResponse(index_path)
