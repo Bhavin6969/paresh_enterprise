@@ -271,7 +271,7 @@ function Footer() {
               <p>Hiran Magri, Sector-4</p>
               <p>Udaipur, Rajasthan-313002</p>
               <p>Phone: +91 7597115533</p>
-              <p>Alt. Phone: +91 7597115533</p>
+              <p>Alt. Phone: +91 9351138396</p>
               <p>Email: paresh_udr@yahoo.co.in</p>
             </div>
           </div>
