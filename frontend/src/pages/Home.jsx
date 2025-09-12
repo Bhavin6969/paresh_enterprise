@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-
+import homeBg from '/assets/home-bg.jpg';
+import industrial_image from '/assets/industrial_image.jpg';
 
 // Particle system for sophisticated background effects
 function ParticleSystem({ className }) {
@@ -141,7 +142,7 @@ function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/assets/home-bg.jpg')",
+          backgroundImage: `url('${homeBg}')`,
         }}
       />
       {/* Background overlay */}
@@ -236,7 +237,7 @@ function Services() {
       title: "Industrial Machinery",
       description:
         "Custom-engineered machinery tailored to your industrial requirements with precision manufacturing and quality assurance.",
-      backgroundImage: "url('/industrial-machinery.jpg')",
+      backgroundImage: `url('${industrial_image}')`,
       icon: (
         <svg
           className="w-8 h-8 text-blue-600"
