@@ -142,7 +142,7 @@ export default function Services() {
               {
                 title: "Custom Manufacturing",
                 subtitle: "Precision Engineering",
-                image: "/manufacturing.jpg",
+                image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704909/manufacturing_y6yduj.jpg",
                 desc: "Advanced manufacturing solutions tailored to your specifications. Our state-of-the-art facilities and experienced team ensure every component meets the highest quality standards with precise tolerances and superior finish. From prototyping to full-scale production, we specialize in delivering cost-effective and scalable manufacturing services across diverse industries.",
                 features: ["CNC Machining", "Quality Assurance", "Custom Tooling", "Rapid Prototyping"],
                 highlight: "Industry Leading Precision",
@@ -150,7 +150,7 @@ export default function Services() {
               {
                 title: "SCADA Installation Services",
                 subtitle: "Industrial Automation",
-                image: "/supply.jpg",
+                image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704913/supply_eetomv.jpg",
                 desc: "Specialized SCADA (Supervisory Control and Data Acquisition) installation and support services for diverse industrial sectors. Our expert team provides comprehensive automation solutions tailored to your industry requirements. With in-depth experience in designing, integrating, and maintaining SCADA systems, we ensure reliable monitoring, process optimization, and long-term operational efficiency.",
                 features: [
                   "Cement Plants",

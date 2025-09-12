@@ -211,25 +211,25 @@ const Legacy = () => {
       year: "2008",
       title: "Founded",
       text: "A small engineering outfit with a big vision for industrial reliability and innovation.",
-      imageUrl: "/objective-vision.jpg"
+      imageUrl: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704906/objective-vision_iiupsi.jpg"
     },
     {
       year: "2015",
       title: "Scaling Up",
       text: "Integrated conveyor systems and advanced process equipment into our expanding portfolio.",
-      imageUrl: "/about-bg.jpg"
+      imageUrl: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704902/about-bg_fd30xb.jpg"
     },
     {
       year: "2020",
       title: "Digital Transformation",
       text: "Implemented IoT solutions and predictive maintenance technologies across our equipment lines.",
-      imageUrl: "/global.jpg"
+      imageUrl: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704906/global_o81oeo.jpg"
     },
     {
       year: "2025",
       title: "Future‑Forward",
       text: "AI-assisted maintenance protocols and sustainable manufacturing practices leading the industry.",
-      imageUrl: "/manufacturing.jpg"
+      imageUrl: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757706822/objective_zzaxzn.png"
     },
   ];
 
@@ -286,7 +286,7 @@ const Leadership = () => (
           <div className="lg:col-span-7">
             <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-stone-700 shadow-2xl">
               <OptimizedImage
-                src="/Leadership.jpg"
+                src="https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704910/Leadership_y9veu1.jpg"
                 alt="Leadership team reviewing industrial equipment blueprints"
                 className="w-full h-full object-cover"
               />
@@ -441,7 +441,7 @@ const CallToAction = () => (
     {/* Background Image - covers full area */}
     <div 
       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/ready_image.jpg')" }}
+      style={{ backgroundImage: "url('https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704909/ready_image_mjznuh.jpg')" }}
     />
     
     {/* Overlay - on top of image but behind content */}

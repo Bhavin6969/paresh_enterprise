@@ -12,7 +12,7 @@ export default function ProductDetail() {
     { 
       id: 1, 
       name: "Silo Feeding and Extraction System", 
-      image: "/Silo-Feeding-System.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704912/Silo-Feeding-System_ryuwg3.jpg",
       category: "Cement Plant Equipment", 
       description: "Advanced automated systems for efficient silo feeding and material extraction operations",
       fullDescription: "Our Silo Feeding and Extraction System represents the pinnacle of cement plant automation technology. Engineered for maximum efficiency in material handling, this system features advanced automated controls, precision feeding mechanisms, and reliable extraction processes. Built with decades of engineering expertise and tested in demanding industrial environments for optimal performance, safety, and durability.",
@@ -32,7 +32,7 @@ export default function ProductDetail() {
     { 
       id: 2, 
       name: "Screw Conveyor", 
-      image: "/screw.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704912/screw_lcaumj.jpg",
       category: "Material Handling", 
       description: "Efficient material transport systems for bulk material handling in industrial applications",
       fullDescription: "High-performance screw conveyors engineered for reliable transportation of bulk materials across diverse industrial applications. Our conveyors feature robust construction, customizable configurations, and precision engineering to ensure optimal throughput while minimizing maintenance requirements and operational costs.",
@@ -52,7 +52,7 @@ export default function ProductDetail() {
     { 
       id: 3, 
       name: "Bucket Elevator", 
-      image: "/bucket-elevator.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704903/bucket-elevator_baazpt.jpg",
       category: "Vertical Transport", 
       description: "Reliable vertical material handling solutions for various industrial applications",
       fullDescription: "Robust bucket elevators designed for efficient vertical transportation of bulk materials in industrial environments. Available in multiple configurations with customizable bucket designs, drive systems, and discharge arrangements to meet specific operational requirements while ensuring reliable, continuous operation.",
@@ -72,7 +72,7 @@ export default function ProductDetail() {
     { 
       id: 4, 
       name: "Conveyor Accessories", 
-      image: "/conveyor-accessories.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/conveyor-accessories_fh8tlj.jpg",
       category: "Components", 
       description: "Complete range of conveyor components including idlers, pulleys, and belt accessories",
       fullDescription: "Comprehensive range of high-quality conveyor accessories designed to optimize conveyor system performance and reliability. Our accessories are manufactured to exacting standards and are compatible with various conveyor types, ensuring seamless integration and extended service life.",
@@ -92,7 +92,7 @@ export default function ProductDetail() {
     { 
       id: 5, 
       name: "Air Pollution Control (APC)", 
-      image: "/air-pollution-controller.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704903/air-pollution-controller_w0phwr.jpg",
       category: "Environmental", 
       description: "Comprehensive air pollution control systems for industrial emission management",
       fullDescription: "Advanced air pollution control systems engineered to meet stringent environmental standards while maintaining optimal industrial operations. Our APC systems feature cutting-edge filtration technology, automated controls, and robust construction to ensure reliable emission control and regulatory compliance.",
@@ -112,7 +112,7 @@ export default function ProductDetail() {
     { 
       id: 6, 
       name: "Rotary Kilns & Dryer", 
-      image: "/Kiln.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/Kiln_wjwkh5.jpg",
       category: "Processing Equipment", 
       description: "High-temperature processing equipment for cement and industrial applications",
       fullDescription: "High-efficiency rotary kilns and dryers engineered for demanding industrial processing applications. Our equipment features advanced refractory lining, precision temperature control, and robust mechanical design to ensure consistent product quality and reliable operation in high-temperature environments.",
@@ -132,7 +132,7 @@ export default function ProductDetail() {
     { 
       id: 7, 
       name: "Waste Recycling & Incineration", 
-      image: "/Recycling.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704911/Recycling_zdtntj.jpg",
       category: "Environmental", 
       description: "Advanced waste management and recycling systems for sustainable operations",
       fullDescription: "Comprehensive waste recycling and incineration systems designed for sustainable waste management and energy recovery. Our systems incorporate advanced emission control, energy recovery technology, and automated operations to maximize resource recovery while minimizing environmental impact.",
@@ -152,7 +152,7 @@ export default function ProductDetail() {
     { 
       id: 8, 
       name: "Pulse Jet Bag House", 
-      image: "/Pulse-jet.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704909/Pulse-jet_xp3t2q.jpg",
       category: "Air Filtration", 
       description: "High-efficiency dust collection systems with pulse jet cleaning technology",
       fullDescription: "State-of-the-art pulse jet bag house systems engineered for superior dust collection performance in demanding industrial environments. Features advanced pulse jet cleaning technology, high-efficiency filter media, and robust construction for reliable operation and extended service life.",
@@ -172,7 +172,7 @@ export default function ProductDetail() {
     { 
       id: 9, 
       name: "Dust Collection System", 
-      image: "/Dust-collection.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704906/Dust-collection_tqweff.jpg",
       category: "Air Filtration", 
       description: "Comprehensive dust collection solutions for cleaner industrial environments",
       fullDescription: "Comprehensive dust collection systems designed to maintain clean, safe working environments in industrial facilities. Our systems combine advanced filtration technology with intelligent controls to provide reliable dust capture and collection while minimizing energy consumption and maintenance requirements.",
@@ -192,7 +192,7 @@ export default function ProductDetail() {
     { 
       id: 10, 
       name: "Industrial Fans", 
-      image: "/Industrial_fans.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704908/Industrial_fans_m752xi.jpg",
       category: "Ventilation", 
       description: "Complete range of industrial fans including ID, FD, centrifugal, and specialized fans",
       fullDescription: "Comprehensive range of industrial fans engineered for diverse ventilation and material handling applications. Our fans feature advanced aerodynamic design, robust construction, and precision balancing to deliver optimal performance, energy efficiency, and reliable operation in demanding industrial environments.",
@@ -212,7 +212,7 @@ export default function ProductDetail() {
     { 
       id: 11, 
       name: "Water Pollution Control Equipment", 
-      image: "/water_pollution.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704914/water_pollution_kiuzic.jpg",
       category: "Environmental", 
       description: "Advanced water treatment and pollution control systems for industrial applications",
       fullDescription: "Advanced water pollution control equipment designed to treat industrial wastewater and ensure compliance with environmental regulations. Our systems incorporate cutting-edge treatment technologies, automated controls, and monitoring systems to deliver reliable water treatment performance.",
@@ -232,7 +232,7 @@ export default function ProductDetail() {
     { 
       id: 12, 
       name: "Belt Conveyors", 
-      image: "/belt_conveyors.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704903/belt_conveyors_xlzauw.jpg",
       category: "Material Handling", 
       description: "Robust belt conveyor systems for efficient material transportation",
       fullDescription: "Heavy-duty belt conveyor systems engineered for reliable material transportation in demanding industrial applications. Our conveyors feature robust construction, advanced belt tracking systems, and customizable configurations to handle various materials while ensuring maximum uptime and operational efficiency.",

@@ -143,7 +143,7 @@ function Navbar() {
             <Link to="/" className="flex items-center gap-3 group">
               <div className="relative">
                 <img
-                  src="/logo.png"
+                  src="https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704911/logo_xyx3ln.png"
                   alt="Paresh Enterprise"
                   className="h-10 w-10 transition-transform group-hover:scale-110 group-hover:rotate-3"
                 />

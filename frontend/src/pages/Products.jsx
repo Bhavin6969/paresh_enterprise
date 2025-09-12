@@ -6,18 +6,18 @@ export default function Products() {
   const navigate = useNavigate();
 
   const products = [
-    { id: 1, name: "Silo Feeding and Extraction System", image: "/Silo-Feeding-System.jpg", category: "Cement Plant Equipment", description: "Advanced automated systems for efficient silo feeding and material extraction operations" },
-    { id: 2, name: "Screw Conveyor", image: "/screw.jpg", category: "Material Handling", description: "Efficient material transport systems for bulk material handling in industrial applications" },
-    { id: 3, name: "Bucket Elevator", image: "/bucket-elevator.jpg", category: "Vertical Transport", description: "Reliable vertical material handling solutions for various industrial applications" },
-    { id: 4, name: "Conveyor Accessories", image: "/conveyor-accessories.jpg", category: "Components", description: "Complete range of conveyor components including idlers, pulleys, and belt accessories" },
-    { id: 5, name: "Air Pollution Control (APC)", image: "/air-pollution-controller.jpg", category: "Environmental", description: "Comprehensive air pollution control systems for industrial emission management" },
-    { id: 6, name: "Rotary Kilns & Dryer", image: "/Kiln.jpg", category: "Processing Equipment", description: "High-temperature processing equipment for cement and industrial applications" },
-    { id: 7, name: "Waste Recycling & Incineration", image: "/Recycling.jpg", category: "Environmental", description: "Advanced waste management and recycling systems for sustainable operations" },
-    { id: 8, name: "Pulse Jet Bag House", image: "/Pulse-jet.jpg", category: "Air Filtration", description: "High-efficiency dust collection systems with pulse jet cleaning technology" },
-    { id: 9, name: "Dust Collection System", image: "/Dust-collection.jpg", category: "Air Filtration", description: "Comprehensive dust collection solutions for cleaner industrial environments" },
-    { id: 10, name: "Industrial Fans", image: "/Industrial_fans.jpg", category: "Ventilation", description: "Complete range of industrial fans including ID, FD, centrifugal, and specialized fans" },
-    { id: 11, name: "Water Pollution Control Equipment", image: "/water_pollution.jpg", category: "Environmental", description: "Advanced water treatment and pollution control systems for industrial applications" },
-    { id: 12, name: "Belt Conveyors", image: "/belt_conveyors.jpg", category: "Material Handling", description: "Robust belt conveyor systems for efficient material transportation" }
+    { id: 1, name: "Silo Feeding and Extraction System", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704912/Silo-Feeding-System_ryuwg3.jpg", category: "Cement Plant Equipment", description: "Advanced automated systems for efficient silo feeding and material extraction operations" },
+    { id: 2, name: "Screw Conveyor", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704912/screw_lcaumj.jpg", category: "Material Handling", description: "Efficient material transport systems for bulk material handling in industrial applications" },
+    { id: 3, name: "Bucket Elevator", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704903/bucket-elevator_baazpt.jpg", category: "Vertical Transport", description: "Reliable vertical material handling solutions for various industrial applications" },
+    { id: 4, name: "Conveyor Accessories", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/conveyor-accessories_fh8tlj.jpg", category: "Components", description: "Complete range of conveyor components including idlers, pulleys, and belt accessories" },
+    { id: 5, name: "Air Pollution Control (APC)", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704903/air-pollution-controller_w0phwr.jpg", category: "Environmental", description: "Comprehensive air pollution control systems for industrial emission management" },
+    { id: 6, name: "Rotary Kilns & Dryer", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/Kiln_wjwkh5.jpg", category: "Processing Equipment", description: "High-temperature processing equipment for cement and industrial applications" },
+    { id: 7, name: "Waste Recycling & Incineration", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/Recycling.jpg", category: "Environmental", description: "Advanced waste management and recycling systems for sustainable operations" },
+    { id: 8, name: "Pulse Jet Bag House", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/Pulse-jet.jpg", category: "Air Filtration", description: "High-efficiency dust collection systems with pulse jet cleaning technology" },
+    { id: 9, name: "Dust Collection System", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/Dust-collection.jpg", category: "Air Filtration", description: "Comprehensive dust collection solutions for cleaner industrial environments" },
+    { id: 10, name: "Industrial Fans", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/Industrial_fans.jpg", category: "Ventilation", description: "Complete range of industrial fans including ID, FD, centrifugal, and specialized fans" },
+    { id: 11, name: "Water Pollution Control Equipment", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/water_pollution.jpg", category: "Environmental", description: "Advanced water treatment and pollution control systems for industrial applications" },
+    { id: 12, name: "Belt Conveyors", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/belt_conveyors.jpg", category: "Material Handling", description: "Robust belt conveyor systems for efficient material transportation" }
   ];
 
   const containerVariants = {
