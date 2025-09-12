@@ -10,7 +10,11 @@ import traceback
 MONGO_URL = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
 DB_NAME = os.getenv("DATABASE_NAME", "paresh_enterprises")
 EMAIL_USER = os.getenv("EMAIL_USER", "pareshdwivedi9@gmail.com")
+<<<<<<< HEAD
 EMAIL_PASS = os.getenv("EMAIL_PASS", "")
+=======
+EMAIL_PASS = os.getenv("EMAIL_PASS", "fnjk qotw nmhy awkx")
+>>>>>>> d4766db21fcb699dc2de87cfba34ee6d73291217
 OWNER_EMAIL = os.getenv("OWNER_EMAIL", "paresh_udr@yahoo.in")
 
 # ✅ MongoDB connection
@@ -61,16 +65,17 @@ def send_email(form: ContactForm):
 @router.post("/contact")
 async def submit_contact(form: ContactForm):
     try:
-        # Save to DB
         contact_data = form.dict()
-        result = contacts_collection.insert_one(contact_data)
-        print(f"✅ Contact inserted into DB with id: {result.inserted_id}")
+        try:
+            result = contacts_collection.insert_one(contact_data)
+            print(f"✅ Contact inserted into DB with id: {result.inserted_id}")
+        except Exception as db_error:
+            print("⚠️ Database unavailable, skipping DB save:", db_error)
 
-        # Send email (won’t block DB success)
         try:
             send_email(form)
         except Exception as e:
-            print("⚠️ Warning: Email failed but DB insert succeeded.", e)
+            print("⚠️ Warning: Email failed:", e)
 
         return {"message": "Contact form submitted successfully!"}
 
