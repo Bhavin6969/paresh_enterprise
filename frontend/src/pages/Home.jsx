@@ -236,7 +236,7 @@ function Services() {
       title: "Industrial Machinery",
       description:
         "Custom-engineered machinery tailored to your industrial requirements with precision manufacturing and quality assurance.",
-      backgroundImage: `url('${industrial_image}')`,
+      backgroundImage: `url('https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704906/industrial_image_fpd7yx.jpg')`,
       icon: (
         <svg
           className="w-8 h-8 text-blue-600"
@@ -263,7 +263,7 @@ function Services() {
       title: "Conveyor Solutions",
       description:
         "Advanced belt conveyor systems with comprehensive maintenance services including hot and cold vulcanizing solutions.",
-      backgroundImage: "url('/conveyor-systems.jpg')",
+      backgroundImage: "url('https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704904/conveyor_solution_ezmxpb.jpg')",
       icon: (
         <svg
           className="w-8 h-8 text-green-600"
@@ -284,7 +284,7 @@ function Services() {
       title: "Process Equipment",
       description:
         "Complete integrated systems for cement manufacturing, marble processing, and mineral handling operations.",
-      backgroundImage: "url('/process-equipment.jpg')",
+      backgroundImage: "url('https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/process_equip_cp6yjs.jpg')",
       icon: (
         <svg
           className="w-8 h-8 text-purple-600"
@@ -440,7 +440,7 @@ function TrustedCollaboratorsSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/companies.jpg')",
+          backgroundImage: "url('https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704905/companies_h2io7m.jpg')",
         }}
       />
       {/* Dark overlay for readability */}
@@ -538,42 +538,42 @@ function WhyChooseUs() {
     {
       title: "16+ Years of Excellence",
       description: "Over a decade and a half of proven expertise in industrial engineering and manufacturing solutions.",
-      image: "url('/experience.jpg')",
+      
       icon: "⏳",
       
     },
     {
       title: "Advanced Technology",
       description: "Cutting-edge manufacturing processes and state-of-the-art equipment for superior quality output.",
-      image: "url('/technology.jpg')",
+      
       icon: "🔧",
       
     },
     {
       title: "Custom Solutions",
       description: "Tailored engineering solutions designed specifically for your unique industrial requirements and challenges.",
-      image: "url('/custom-solutions.jpg')",
+      
       icon: "⚙️",
       
     },
     {
       title: "24/7 Support",
       description: "Round-the-clock technical support and maintenance services to ensure uninterrupted operations.",
-      image: "url('/support.jpg')",
+      
       icon: "🛠️",
       
     },
     {
       title: "Quality Assurance",
       description: "Rigorous quality control processes and international standards compliance for reliable performance.",
-      image: "url('/quality-assurance.jpg')",
+      
       icon: "✅",
       
     },
     {
       title: "Pan-India Service",
       description: "Comprehensive service network across India with rapid response times and local expertise.",
-      image: "url('/pan-india.jpg')",
+      
       icon: "🌏",
       
     }
