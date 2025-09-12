@@ -540,42 +540,42 @@ function WhyChooseUs() {
       description: "Over a decade and a half of proven expertise in industrial engineering and manufacturing solutions.",
       image: "url('/experience.jpg')",
       icon: "⏳",
-      stats: "Since 2008"
+      
     },
     {
       title: "Advanced Technology",
       description: "Cutting-edge manufacturing processes and state-of-the-art equipment for superior quality output.",
       image: "url('/technology.jpg')",
       icon: "🔧",
-      stats: "Latest Tech"
+      
     },
     {
       title: "Custom Solutions",
       description: "Tailored engineering solutions designed specifically for your unique industrial requirements and challenges.",
       image: "url('/custom-solutions.jpg')",
       icon: "⚙️",
-      stats: "100% Custom"
+      
     },
     {
       title: "24/7 Support",
       description: "Round-the-clock technical support and maintenance services to ensure uninterrupted operations.",
       image: "url('/support.jpg')",
       icon: "🛠️",
-      stats: "Always Available"
+      
     },
     {
       title: "Quality Assurance",
       description: "Rigorous quality control processes and international standards compliance for reliable performance.",
       image: "url('/quality-assurance.jpg')",
       icon: "✅",
-      stats: ""
+      
     },
     {
       title: "Pan-India Service",
       description: "Comprehensive service network across India with rapid response times and local expertise.",
       image: "url('/pan-india.jpg')",
       icon: "🌏",
-      stats: "Nationwide"
+      
     }
   ];
 
@@ -656,11 +656,6 @@ function WhyChooseUs() {
                   >
                     {feature.icon}
                   </motion.div>
-                  <div className="text-right">
-                    <div className="text-sm font-medium text-blue-600 tracking-wider uppercase">
-                      {feature.stats}
-                    </div>
-                  </div>
                 </div>
 
                 {/* Title */}
@@ -681,34 +676,11 @@ function WhyChooseUs() {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-16"
-        >
-          <p className="text-lg text-gray-600 font-light mb-8 max-w-2xl mx-auto">
-            Ready to experience the difference? Let's discuss your industrial engineering requirements.
-          </p>
-          <motion.a
-            href="/contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium tracking-wider uppercase hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 rounded-sm shadow-lg hover:shadow-xl"
-          >
-            Learn More About Us
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </motion.a>
-        </motion.div>
+        
       </div>
     </section>
   );
 }
-
-
 // UPDATED: Professional objective section
 function ObjectiveSection() {
   return (
