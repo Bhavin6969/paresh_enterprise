@@ -497,199 +497,230 @@ function TrustedCollaboratorsSection() {
   );
 }
 
-// Professional and elegant motto and objective sections
+// Clean, professional motto and objective sections inspired by DigitalBrew
 function MottoAndObjective() {
-  const mottoItems = [
-    {
-      title: "Customer-Centric Design",
-      text: "Engineering equipment to meet customer specifications with complete satisfaction and precision."
-    },
-    {
-      title: "Continuous Excellence", 
-      text: "Embracing feedback and improvements to deliver superior quality in every project."
-    },
-    {
-      title: "Quality Leadership",
-      text: "Exceeding customer expectations through rigorous quality standards and processes."
-    },
-    {
-      title: "Lasting Partnerships",
-      text: "Building enduring relationships based on trust, reliability, and mutual growth."
-    }
-  ];
-
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-stone-100">
-      {/* Subtle background elements */}
+    <section className="py-32 relative overflow-hidden bg-white">
+      {/* Minimal background elements */}
       <div className="absolute inset-0">
-        <ParticleSystem className="opacity-20" />
-        <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 60,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-20 right-20 w-96 h-96 border border-gray-200/30 rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(59,130,246,0.02) 0%, transparent 70%)",
-          }}
-        />
-        <motion.div
-          animate={{
-            rotate: -360,
-          }}
-          transition={{
-            duration: 80,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute bottom-20 left-16 w-80 h-80 border border-stone-200/40 rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(107,114,128,0.02) 0%, transparent 70%)",
-          }}
-        />
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-200/30 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-slate-200/30 to-transparent"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Our Motto Section */}
-        <div className="mb-20">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
+        {/* Strategic Approach Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-center mb-24"
+        >
+          <div className="max-w-4xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-6xl font-extralight text-slate-800 mb-8 tracking-tight leading-tight"
+            >
+              Strategic Engineering
+              <br />
+              <span className="text-slate-600">Delivers Results</span>
+            </motion.h2>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-12"
+            >
+              Working hard is meaningless without direction. You need strategic engineering solutions 
+              that align with your industrial goals.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="inline-block"
+            >
+              <a 
+                href="/contact" 
+                className="bg-slate-800 text-white px-8 py-4 text-sm font-medium tracking-wider uppercase hover:bg-slate-700 transition-colors duration-300 inline-flex items-center space-x-2"
+              >
+                <span>Explore Your Options</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Our Motto */}
+        <div className="mb-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
-              Our Motto
+            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-500 font-medium mb-4">Our Approach</h3>
+            <h2 className="text-4xl md:text-5xl font-extralight text-slate-800 tracking-tight">
+              Strategic Engineering Principles
             </h2>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto"
-            />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {mottoItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white/70 backdrop-blur-lg border border-gray-200/50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-blue-500 to-slate-600 rounded-full mt-3"></div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-800 mb-3 tracking-wide">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed font-light">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-12"
+            >
+              <div className="border-l-2 border-slate-200 pl-8">
+                <h4 className="text-xl font-medium text-slate-800 mb-3">Precision-Driven Solutions</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Every equipment is engineered to exact specifications, ensuring optimal performance and complete customer satisfaction.
+                </p>
+              </div>
+              
+              <div className="border-l-2 border-slate-200 pl-8">
+                <h4 className="text-xl font-medium text-slate-800 mb-3">Adaptive Innovation</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  We embrace feedback and continuously refine our processes to deliver superior engineering solutions.
+                </p>
+              </div>
+              
+              <div className="border-l-2 border-slate-200 pl-8">
+                <h4 className="text-xl font-medium text-slate-800 mb-3">Quality Leadership</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Our commitment extends beyond meeting expectations – we consistently exceed industry quality standards.
+                </p>
+              </div>
+              
+              <div className="border-l-2 border-slate-200 pl-8">
+                <h4 className="text-xl font-medium text-slate-800 mb-3">Partnership Philosophy</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Building enduring relationships through transparent communication and reliable long-term support.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-slate-50 p-12 rounded-sm"
+            >
+              <div className="text-center">
+                <div className="text-6xl font-extralight text-slate-300 mb-6">"</div>
+                <blockquote className="text-xl text-slate-700 font-light leading-relaxed mb-8 italic">
+                  Strategic engineering isn't just about building equipment – it's about building partnerships that drive industrial transformation.
+                </blockquote>
+                <div className="w-12 h-px bg-slate-300 mx-auto"></div>
+              </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* The Objective Section */}
+        {/* The Objective */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
-            The Objective
-          </h2>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto mb-12"
-          />
-        </motion.div>
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-500 font-medium mb-4">Our Mission</h3>
+            <h2 className="text-4xl md:text-5xl font-extralight text-slate-800 mb-16 tracking-tight">
+              Industrial Excellence Through Strategic Innovation
+            </h2>
 
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl p-10 shadow-xl"
-          >
-            <div className="space-y-6 text-gray-700">
-              <motion.p
+            <div className="grid md:grid-cols-3 gap-12 mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-full flex items-center justify-center">
+                  <div className="text-2xl font-extralight text-slate-600">01</div>
+                </div>
+                <h4 className="text-lg font-medium text-slate-800 mb-3">Market Leadership</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Develop comprehensive engineering solutions tailored to specific industry requirements with unmatched quality and reliability.
+                </p>
+              </motion.div>
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-lg leading-relaxed font-light"
+                className="text-center"
               >
-                To market and develop comprehensive engineering solutions tailored to specific industry requirements, 
-                integrating both exceptional quality and unwavering reliability with prompt delivery schedules.
-              </motion.p>
-              
-              <motion.p
+                <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-full flex items-center justify-center">
+                  <div className="text-2xl font-extralight text-slate-600">02</div>
+                </div>
+                <h4 className="text-lg font-medium text-slate-800 mb-3">Strategic Support</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Address critical replacement needs efficiently, ensuring operational continuity across diverse industrial sectors.
+                </p>
+              </motion.div>
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-lg leading-relaxed font-light"
+                className="text-center"
               >
-                Recognizing the critical importance of efficient replacement solutions, we have established comprehensive 
-                service capabilities spanning diverse industrial sectors, ensuring operational continuity and enhanced productivity.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-slate-50 rounded-xl border border-blue-100/50"
-              >
-                <p className="text-lg leading-relaxed font-medium text-slate-700 italic">
-                  "We believe in expanding our responsibility across all industrial domains, coordinating our expertise 
-                  to deliver efficient and economical solutions. Our customers remain our most valued teachers."
+                <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-full flex items-center justify-center">
+                  <div className="text-2xl font-extralight text-slate-600">03</div>
+                </div>
+                <h4 className="text-lg font-medium text-slate-800 mb-3">Collaborative Growth</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Coordinate expertise across all industrial domains to deliver efficient, economical solutions through continuous learning.
                 </p>
               </motion.div>
-
-              {/* Statistics */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-                className="flex justify-center space-x-12 pt-8 border-t border-gray-200/50"
-              >
-                <div className="text-center">
-                  <div className="text-2xl font-extralight text-slate-600 mb-1">16+</div>
-                  <div className="text-xs uppercase tracking-wider text-gray-500 font-medium">Years</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-extralight text-slate-600 mb-1">99%</div>
-                  <div className="text-xs uppercase tracking-wider text-gray-500 font-medium">Satisfaction</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-extralight text-slate-600 mb-1">24/7</div>
-                  <div className="text-xs uppercase tracking-wider text-gray-500 font-medium">Support</div>
-                </div>
-              </motion.div>
             </div>
-          </motion.div>
-        </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="bg-slate-800 text-white p-12 rounded-sm"
+            >
+              <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+                <div className="md:w-2/3 text-left">
+                  <h4 className="text-2xl font-light mb-4">Ready to strategize your engineering solutions?</h4>
+                  <p className="text-slate-300 font-light">
+                    Get expert consultation for your industrial equipment requirements.
+                  </p>
+                </div>
+                <div className="md:w-1/3 text-right">
+                  <a 
+                    href="/contact" 
+                    className="bg-white text-slate-800 px-8 py-3 text-sm font-medium tracking-wider uppercase hover:bg-slate-100 transition-colors duration-300 inline-block"
+                  >
+                    Get Started
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
