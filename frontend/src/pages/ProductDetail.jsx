@@ -307,7 +307,7 @@ export default function ProductDetail() {
               <img 
                 src={product.image} 
                 alt={product.name} 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
+                className="w-full h-full object-contain hover:scale-105 transition-transform duration-300 p-4" 
               />
             </div>
           </motion.div>
@@ -452,11 +452,11 @@ export default function ProductDetail() {
                   className="bg-slate-900 rounded-xl overflow-hidden border border-slate-700 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
                   onClick={() => navigate(`/product/${relatedProduct.id}`)}
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden bg-slate-800">
                     <img 
                       src={relatedProduct.image} 
                       alt={relatedProduct.name} 
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
+                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-300 p-3" 
                     />
                   </div>
                   <div className="p-6">
