@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -533,38 +532,187 @@ function TrustedCollaboratorsSection() {
 }
 
 
-// UPDATED: Professional motto and objective sections with images
-function MottoAndObjective() {
-  const mottoItems = [
+// NEW: Updated Why Choose Us section (replacing Our Motto)
+function WhyChooseUs() {
+  const features = [
     {
-      title: "Customer-Centric Design",
-      text: "Engineering equipment to meet customer specifications with complete satisfaction and precision.",
-      image: "url('/customer-design.jpg')",
-      icon: "🎯"
+      title: "16+ Years of Excellence",
+      description: "Over a decade and a half of proven expertise in industrial engineering and manufacturing solutions.",
+      image: "url('/experience.jpg')",
+      icon: "⏳",
+      stats: "Since 2008"
     },
     {
-      title: "Continuous Excellence",
-      text: "Embracing feedback and improvements to deliver superior quality in every project.",
-      image: "url('/excellence.jpg')",
-      icon: "🏆"
+      title: "Advanced Technology",
+      description: "Cutting-edge manufacturing processes and state-of-the-art equipment for superior quality output.",
+      image: "url('/technology.jpg')",
+      icon: "🔧",
+      stats: "Latest Tech"
     },
     {
-      title: "Quality Leadership",
-      text: "Exceeding customer expectations through rigorous quality standards and processes.",
-      image: "url('/quality.jpg')",
-      icon: "⭐"
+      title: "Custom Solutions",
+      description: "Tailored engineering solutions designed specifically for your unique industrial requirements and challenges.",
+      image: "url('/custom-solutions.jpg')",
+      icon: "⚙️",
+      stats: "100% Custom"
     },
     {
-      title: "Lasting Partnerships",
-      text: "Building enduring relationships based on trust, reliability, and mutual growth.",
-      image: "url('/partnership.jpg')",
-      icon: "🤝"
+      title: "24/7 Support",
+      description: "Round-the-clock technical support and maintenance services to ensure uninterrupted operations.",
+      image: "url('/support.jpg')",
+      icon: "🛠️",
+      stats: "Always Available"
+    },
+    {
+      title: "Quality Assurance",
+      description: "Rigorous quality control processes and international standards compliance for reliable performance.",
+      image: "url('/quality-assurance.jpg')",
+      icon: "✅",
+      stats: ""
+    },
+    {
+      title: "Pan-India Service",
+      description: "Comprehensive service network across India with rapid response times and local expertise.",
+      image: "url('/pan-india.jpg')",
+      icon: "🌏",
+      stats: "Nationwide"
     }
   ];
 
-
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-stone-100">
+    <section className="py-24 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50" />
+      
+      {/* Subtle background elements */}
+      <div className="absolute inset-0">
+        <ParticleSystem className="opacity-30" />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+          className="absolute top-32 right-20 w-64 h-64 border border-blue-200/20 rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(59,130,246,0.02) 0%, transparent 70%)" }}
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-32 left-16 w-48 h-48 border border-indigo-200/30 rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.03) 0%, transparent 70%)" }}
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
+            Why Choose Us
+          </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-20 h-[1px] bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-6"
+          />
+          <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
+            Discover the advantages that make us the preferred choice for industrial engineering solutions
+          </p>
+        </motion.div>
+
+        {/* Features grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+            >
+              {/* Background image with overlay */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+                style={{
+                  backgroundImage: feature.image,
+                }}
+              />
+              
+              {/* Content */}
+              <div className="relative z-10 p-8">
+                {/* Icon and stats */}
+                <div className="flex items-center justify-between mb-6">
+                  <motion.div
+                    className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg"
+                    whileHover={{ scale: 1.1, rotate: 10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {feature.icon}
+                  </motion.div>
+                  <div className="text-right">
+                    <div className="text-sm font-medium text-blue-600 tracking-wider uppercase">
+                      {feature.stats}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-blue-800 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 leading-relaxed font-light">
+                  {feature.description}
+                </p>
+
+                {/* Hover effect gradient */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 rounded-2xl pointer-events-none" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-center mt-16"
+        >
+          <p className="text-lg text-gray-600 font-light mb-8 max-w-2xl mx-auto">
+            Ready to experience the difference? Let's discuss your industrial engineering requirements.
+          </p>
+          <motion.a
+            href="/contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium tracking-wider uppercase hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 rounded-sm shadow-lg hover:shadow-xl"
+          >
+            Learn More About Us
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+
+// UPDATED: Professional objective section
+function ObjectiveSection() {
+  return (
+    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-50 via-slate-50 to-stone-100">
       {/* Subtle background elements */}
       <div className="absolute inset-0">
         <ParticleSystem className="opacity-20" />
@@ -582,77 +730,7 @@ function MottoAndObjective() {
         />
       </div>
 
-
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Our Motto Section with Images */}
-        <div className="mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
-              Our Motto
-            </h2>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto"
-            />
-          </motion.div>
-
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {mottoItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group relative overflow-hidden bg-white/70 backdrop-blur-lg border border-gray-200/50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                {/* Background image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                  style={{
-                    backgroundImage: item.image,
-                  }}
-                />
-
-                {/* Content */}
-                <div className="relative z-10 p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      <motion.div
-                        className="w-12 h-12 bg-gradient-to-br from-blue-500 to-slate-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {item.icon}
-                      </motion.div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-medium text-gray-800 mb-3 tracking-wide">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed font-light">
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-
         {/* The Objective Section with Hero Image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -672,7 +750,6 @@ function MottoAndObjective() {
             className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto mb-12"
           />
         </motion.div>
-
 
         <div className="max-w-6xl mx-auto">
           {/* Split layout with image and content */}
@@ -752,7 +829,6 @@ function MottoAndObjective() {
                 integrating both exceptional quality and unwavering reliability with prompt delivery schedules.
               </motion.p>
 
-
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -763,7 +839,6 @@ function MottoAndObjective() {
                 Recognizing the critical importance of efficient replacement solutions, we have established comprehensive 
                 service capabilities spanning diverse industrial sectors, ensuring operational continuity and enhanced productivity.
               </motion.p>
-
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -807,9 +882,14 @@ function MottoAndObjective() {
 }
 
 
-
-// FIXED: Professional CTA Section with correct navigation
+// FIXED: Professional CTA Section with correct navigation to contact page
 function CTASection() {
+  const handleGetStarted = () => {
+    // Navigate to contact page - replace with your router's navigation method
+    window.location.href = '/contact';
+    // Or if using React Router: navigate('/contact');
+  };
+
   return (
     <section className="relative overflow-hidden">
       {/* Navy blue background matching footer style */}
@@ -825,12 +905,10 @@ function CTASection() {
           }}
         />
 
-
         {/* Particles for depth */}
         <div className="absolute inset-0">
           <ParticleSystem className="opacity-20" />
         </div>
-
 
         <div className="max-w-4xl mx-auto px-6 py-20 relative z-10">
           <motion.div
@@ -851,7 +929,6 @@ function CTASection() {
               Ready to strategize your engineering solutions?
             </motion.h2>
 
-
             {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -863,14 +940,9 @@ function CTASection() {
               Get expert consultation for your industrial equipment requirements.
             </motion.p>
 
-
-            {/* FIXED CTA Button - using proper React Router navigation */}
+            {/* CTA Button with proper navigation */}
             <motion.button
-              onClick={() => {
-                // Use window.location for navigation or React Router's navigate
-                // Replace this with your router's navigation method
-                window.location.href = '#contact'; // or use React Router's navigate('/contact')
-              }}
+              onClick={handleGetStarted}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -880,29 +952,10 @@ function CTASection() {
                 boxShadow: "0 10px 30px rgba(255,255,255,0.2)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block bg-white text-slate-900 px-8 py-4 text-sm font-medium tracking-wider uppercase hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl rounded-sm cursor-pointer"
+              className="inline-block bg-white text-slate-900 px-8 py-4 text-sm font-medium tracking-wider uppercase hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl rounded-sm cursor-pointer border-none"
             >
               Get Started
             </motion.button>
-
-
-            {/* Alternative: If you have React Router, use this instead */}
-            {/* 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Link
-                to="/contact"
-                className="inline-block bg-white text-slate-900 px-8 py-4 text-sm font-medium tracking-wider uppercase hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl rounded-sm"
-              >
-                Get Started
-              </Link>
-            </motion.div>
-            */}
-
 
             {/* Decorative line */}
             <motion.div
@@ -945,7 +998,8 @@ export default function Home() {
       <HeroSection />
       <Services />
       <TrustedCollaboratorsSection />
-      <MottoAndObjective />
+      <WhyChooseUs />
+      <ObjectiveSection />
       <CTASection />
     </div>
   );
