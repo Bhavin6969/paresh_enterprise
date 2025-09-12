@@ -12,7 +12,7 @@ export default function ProductDetail() {
     { 
       id: 1, 
       name: "Silo Feeding and Extraction System", 
-      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704912/Silo-Feeding-System_ryuwg3.jpg",
+      image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757710769/Silo-Feeding-System_bayoai.jpg",
       category: "Cement Plant Equipment", 
       description: "Advanced automated systems for efficient silo feeding and material extraction operations",
       fullDescription: "Our Silo Feeding and Extraction System represents the pinnacle of cement plant automation technology. Engineered for maximum efficiency in material handling, this system features advanced automated controls, precision feeding mechanisms, and reliable extraction processes. Built with decades of engineering expertise and tested in demanding industrial environments for optimal performance, safety, and durability.",

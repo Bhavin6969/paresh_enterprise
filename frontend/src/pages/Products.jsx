@@ -6,7 +6,7 @@ export default function Products() {
   const navigate = useNavigate();
 
   const products = [
-    { id: 1, name: "Silo Feeding and Extraction System", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704912/Silo-Feeding-System_ryuwg3.jpg", category: "Cement Plant Equipment", description: "Advanced automated systems for efficient silo feeding and material extraction operations" },
+    { id: 1, name: "Silo Feeding and Extraction System", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757710769/Silo-Feeding-System_bayoai.jpg", category: "Cement Plant Equipment", description: "Advanced automated systems for efficient silo feeding and material extraction operations" },
     { id: 2, name: "Screw Conveyor", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704912/screw_lcaumj.jpg", category: "Material Handling", description: "Efficient material transport systems for bulk material handling in industrial applications" },
     { id: 3, name: "Bucket Elevator", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704903/bucket-elevator_baazpt.jpg", category: "Vertical Transport", description: "Reliable vertical material handling solutions for various industrial applications" },
     { id: 4, name: "Conveyor Accessories", image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704907/conveyor-accessories_fh8tlj.jpg", category: "Components", description: "Complete range of conveyor components including idlers, pulleys, and belt accessories" },
