@@ -242,7 +242,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img src="/logo.png" alt="Paresh Enterprise" className="h-12 w-12" />
+              <img src="https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704911/logo_xyx3ln.png" alt="Paresh Enterprise" className="h-12 w-12" />
               <div>
                 <div className="font-extralight text-xl tracking-wider">Paresh Enterprise</div>
                 <div className="text-sm text-gray-400 tracking-widest">ENGINEERING EXCELLENCE</div>
