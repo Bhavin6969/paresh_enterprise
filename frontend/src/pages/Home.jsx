@@ -534,7 +534,277 @@ function TrustedCollaboratorsSection() {
 
 
 // UPDATED: Professional motto and objective sections with images
+function MottoAndObjective() {
+  const mottoItems = [
+    {
+      title: "Customer-Centric Design",
+      text: "Engineering equipment to meet customer specifications with complete satisfaction and precision.",
+      image: "url('/customer-design.jpg')",
+      icon: "🎯"
+    },
+    {
+      title: "Continuous Excellence",
+      text: "Embracing feedback and improvements to deliver superior quality in every project.",
+      image: "url('/excellence.jpg')",
+      icon: "🏆"
+    },
+    {
+      title: "Quality Leadership",
+      text: "Exceeding customer expectations through rigorous quality standards and processes.",
+      image: "url('/quality.jpg')",
+      icon: "⭐"
+    },
+    {
+      title: "Lasting Partnerships",
+      text: "Building enduring relationships based on trust, reliability, and mutual growth.",
+      image: "url('/partnership.jpg')",
+      icon: "🤝"
+    }
+  ];
 
+
+  return (
+    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-stone-100">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0">
+        <ParticleSystem className="opacity-20" />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="absolute top-20 right-20 w-96 h-96 border border-gray-200/30 rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(59,130,246,0.02) 0%, transparent 70%)" }}
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-20 left-16 w-80 h-80 border border-stone-200/40 rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(107,114,128,0.02) 0%, transparent 70%)" }}
+        />
+      </div>
+
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        {/* Our Motto Section with Images */}
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
+              Our Motto
+            </h2>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto"
+            />
+          </motion.div>
+
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {mottoItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="group relative overflow-hidden bg-white/70 backdrop-blur-lg border border-gray-200/50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                {/* Background image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                  style={{
+                    backgroundImage: item.image,
+                  }}
+                />
+
+                {/* Content */}
+                <div className="relative z-10 p-8">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">
+                      <motion.div
+                        className="w-12 h-12 bg-gradient-to-br from-blue-500 to-slate-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {item.icon}
+                      </motion.div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-medium text-gray-800 mb-3 tracking-wide">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed font-light">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+
+        {/* The Objective Section with Hero Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
+            The Objective
+          </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto mb-12"
+          />
+        </motion.div>
+
+
+        <div className="max-w-6xl mx-auto">
+          {/* Split layout with image and content */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Image Section */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <div 
+                  className="h-96 bg-cover bg-center bg-no-repeat"
+                  style={{
+                    backgroundImage: "url('/objective-hero.jpg')", // Main objective image
+                  }}
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+                {/* Floating stats on image */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="grid grid-cols-3 gap-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                      className="text-center bg-white/20 backdrop-blur-lg rounded-lg p-3 border border-white/30"
+                    >
+                      <div className="text-xl font-extralight text-white mb-1">16+</div>
+                      <div className="text-xs uppercase tracking-wider text-white/90 font-medium">Years</div>
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                      className="text-center bg-white/20 backdrop-blur-lg rounded-lg p-3 border border-white/30"
+                    >
+                      <div className="text-xl font-extralight text-white mb-1">99%</div>
+                      <div className="text-xs uppercase tracking-wider text-white/90 font-medium">Satisfaction</div>
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 1.0 }}
+                      className="text-center bg-white/20 backdrop-blur-lg rounded-lg p-3 border border-white/30"
+                    >
+                      <div className="text-xl font-extralight text-white mb-1">24/7</div>
+                      <div className="text-xs uppercase tracking-wider text-white/90 font-medium">Support</div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Content Section */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-6"
+            >
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="text-lg leading-relaxed font-light text-gray-700"
+              >
+                To market and develop comprehensive engineering solutions tailored to specific industry requirements, 
+                integrating both exceptional quality and unwavering reliability with prompt delivery schedules.
+              </motion.p>
+
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="text-lg leading-relaxed font-light text-gray-700"
+              >
+                Recognizing the critical importance of efficient replacement solutions, we have established comprehensive 
+                service capabilities spanning diverse industrial sectors, ensuring operational continuity and enhanced productivity.
+              </motion.p>
+
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                className="p-6 bg-gradient-to-r from-blue-50 to-slate-50 rounded-xl border border-blue-100/50"
+              >
+                <p className="text-lg leading-relaxed font-medium text-slate-700 italic">
+                  "We believe in expanding our responsibility across all industrial domains, coordinating our expertise 
+                  to deliver efficient and economical solutions. Our customers remain our most valued teachers."
+                </p>
+              </motion.div>
+
+              {/* Action button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="pt-4"
+              >
+                <motion.a
+                  href="/about"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center px-6 py-3 bg-slate-800 text-white text-sm font-medium tracking-wider uppercase hover:bg-slate-700 transition-colors duration-300 rounded-sm shadow-lg hover:shadow-xl"
+                >
+                  Learn More About Us
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </motion.a>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 
 
