@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import homeBg from '/assets/home-bg.jpg';
-import industrial_image from '/assets/industrial_image.jpg';
+
 
 // Particle system for sophisticated background effects
 function ParticleSystem({ className }) {
@@ -142,7 +141,7 @@ function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('${homeBg}')`,
+          backgroundImage: `url('https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704914/home-bg_cst6q4.jpg')`,
         }}
       />
       {/* Background overlay */}
