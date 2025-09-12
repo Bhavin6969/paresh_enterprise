@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+
 // ---------- Reusable components
 const SectionTitle = ({ title, subtitle }) => (
   <div className="text-center mb-16">
@@ -15,14 +16,17 @@ const SectionTitle = ({ title, subtitle }) => (
   </div>
 );
 
+
 const Container = ({ children, className = "" }) => (
   <div className={`max-w-6xl mx-auto px-6 ${className}`}>{children}</div>
 );
+
 
 // Fixed FadeUp component with actual animation
 const FadeUp = ({ delay = 0, children, className = "", duration = 0.6 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,12 +38,15 @@ const FadeUp = ({ delay = 0, children, className = "", duration = 0.6 }) => {
       { threshold: 0.1 }
     );
 
+
     if (ref.current) {
       observer.observe(ref.current);
     }
 
+
     return () => observer.disconnect();
   }, [delay]);
+
 
   return (
     <div
@@ -55,11 +62,13 @@ const FadeUp = ({ delay = 0, children, className = "", duration = 0.6 }) => {
   );
 };
 
+
 // Image component with error handling and lazy loading
 const OptimizedImage = ({ src, alt, className = "", placeholder = true }) => {
   const [imageSrc, setImageSrc] = useState(placeholder ? null : src);
   const [imageError, setImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     if (src) {
@@ -76,6 +85,7 @@ const OptimizedImage = ({ src, alt, className = "", placeholder = true }) => {
     }
   }, [src]);
 
+
   if (imageError) {
     return (
       <div className={`bg-stone-300 flex items-center justify-center ${className}`}>
@@ -88,6 +98,7 @@ const OptimizedImage = ({ src, alt, className = "", placeholder = true }) => {
       </div>
     );
   }
+
 
   return (
     <div className={`relative ${className}`}>
@@ -110,6 +121,7 @@ const OptimizedImage = ({ src, alt, className = "", placeholder = true }) => {
   );
 };
 
+
 // ---------- Hero Section with improved accessibility
 const AboutHero = () => (
   <section 
@@ -126,6 +138,7 @@ const AboutHero = () => (
       }}></div>
     </div>
 
+
     {/* Content */}
     <div className="relative z-20 max-w-4xl">
       <h1 className="text-5xl sm:text-6xl md:text-7xl font-thin text-white tracking-wide leading-tight drop-shadow-lg">
@@ -134,12 +147,14 @@ const AboutHero = () => (
         <span className="inline-block border-b-4 border-amber-400 pb-2 text-amber-300">People.</span>
       </h1>
 
+
       <p className="mt-6 text-lg sm:text-xl md:text-2xl font-light text-stone-200 max-w-xl leading-relaxed drop-shadow-sm mx-auto">
         Decades of engineering excellence delivering reliable, elegant industrial solutions.
       </p>
     </div>
   </section>
 );
+
 
 // ---------- Overview Section with proper statistics
 const Overview = () => (
@@ -188,6 +203,7 @@ const Overview = () => (
   </section>
 );
 
+
 // ---------- Legacy Section with proper images
 const Legacy = () => {
   const milestones = [
@@ -216,6 +232,7 @@ const Legacy = () => {
       imageUrl: "/manufacturing.jpg"
     },
   ];
+
 
   return (
     <section className="py-24 bg-gradient-to-b from-stone-50 to-amber-50">
@@ -259,6 +276,53 @@ const Legacy = () => {
   );
 };
 
+
+// ---------- Leadership Section with corrected content and business owner name
+const Leadership = () => (
+  <section className="py-24 bg-gradient-to-br from-stone-800 to-amber-900">
+    <Container>
+      <FadeUp>
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7">
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-stone-700 shadow-2xl">
+              <OptimizedImage
+                src="/Leadership.jpg"
+                alt="Leadership team reviewing industrial equipment blueprints"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+
+          <div className="lg:col-span-5 text-white">
+            <div className="text-xs uppercase tracking-widest text-amber-300 mb-3">
+              Leadership Philosophy
+            </div>
+            <h3 className="text-3xl md:text-4xl font-extralight tracking-tight text-stone-100 mb-6">
+              "Excellence begins with understanding our clients' vision."
+            </h3>
+            <p className="text-stone-200 font-light leading-relaxed text-lg mb-6">
+              Our leadership team believes that exceptional engineering solutions start with deep client partnerships. 
+              By personally engaging with every project from conception to completion, we ensure that our innovative 
+              approach aligns perfectly with real-world industrial needs.
+            </p>
+            <div className="flex items-center space-x-4 mb-6">
+              <div className="w-12 h-px bg-amber-400"></div>
+              <div className="text-amber-300 text-sm font-medium tracking-wide">
+                Paresh Dwivedi, Founder & CEO
+              </div>
+            </div>
+            <p className="text-stone-300 font-light italic text-base">
+              "Our commitment goes beyond manufacturing equipment – we engineer lasting partnerships that drive industrial transformation."
+            </p>
+          </div>
+        </div>
+      </FadeUp>
+    </Container>
+  </section>
+);
+
+
 // ---------- Mission Section with proper content
 const MissionSection = () => (
   <section className="relative py-32 overflow-hidden">
@@ -270,6 +334,7 @@ const MissionSection = () => (
       <div className="absolute bottom-1/3 right-1/3 w-1 h-1 bg-orange-400 rounded-full animate-ping"></div>
       <div className="absolute top-1/2 right-1/4 w-3 h-3 border border-amber-300/50 rounded-full"></div>
     </div>
+
 
     <Container className="relative z-10">
       <FadeUp className="text-center">
@@ -309,6 +374,7 @@ const MissionSection = () => (
   </section>
 );
 
+
 // ---------- Values Section with improved icons and content
 const Values = () => {
   const coreValues = [
@@ -333,6 +399,7 @@ const Values = () => {
       icon: "🤝"
     },
   ];
+
 
   return (
     <section className="py-24 bg-stone-50">
@@ -367,46 +434,6 @@ const Values = () => {
   );
 };
 
-// ---------- Leadership Section with corrected content
-const Leadership = () => (
-  <section className="py-24 bg-gradient-to-br from-stone-800 to-amber-900">
-    <Container>
-      <FadeUp>
-        <div className="grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7">
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-stone-700 shadow-2xl">
-              <OptimizedImage
-                src="/Leadership.jpg"
-                alt="Leadership team reviewing industrial equipment blueprints"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 text-white">
-            <div className="text-xs uppercase tracking-widest text-amber-300 mb-3">
-              Leadership Philosophy
-            </div>
-            <h3 className="text-3xl md:text-4xl font-extralight tracking-tight text-stone-100 mb-6">
-              "Excellence begins with understanding our clients' vision."
-            </h3>
-            <p className="text-stone-200 font-light leading-relaxed text-lg mb-6">
-              Our leadership team believes that exceptional engineering solutions start with deep client partnerships. 
-              By personally engaging with every project from conception to completion, we ensure that our innovative 
-              approach aligns perfectly with real-world industrial needs.
-            </p>
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-px bg-amber-400"></div>
-              <div className="text-amber-300 text-sm font-medium tracking-wide">
-                Engineering Leadership
-              </div>
-            </div>
-          </div>
-        </div>
-      </FadeUp>
-    </Container>
-  </section>
-);
 
 // ---------- Call to Action Section
 const CallToAction = () => (
@@ -435,19 +462,21 @@ const CallToAction = () => (
   </section>
 );
 
-// ---------- Main Component with proper error boundary
+
+// ---------- Main Component with proper error boundary - Updated order
 const About = () => {
   return (
     <div className="page-transition" role="main">
       <AboutHero />
       <Overview />
       <Legacy />
+      <Leadership />
       <MissionSection />
       <Values />
-      <Leadership />
       <CallToAction />
     </div>
   );
 };
+
 
 export default About;

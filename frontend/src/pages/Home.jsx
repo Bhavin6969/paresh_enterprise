@@ -4,20 +4,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 // Particle system for sophisticated background effects
 function ParticleSystem({ className }) {
   const canvasRef = useRef(null);
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     const particles = [];
     let animationFrameId;
-
     const resizeCanvas = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     };
-
     const createParticles = () => {
       for (let i = 0; i < 25; i++) {
         particles.push({
@@ -30,30 +26,24 @@ function ParticleSystem({ className }) {
         });
       }
     };
-
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       particles.forEach((particle) => {
         particle.x += particle.vx;
         particle.y += particle.vy;
-
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity})`;
         ctx.fill();
       });
-
       // Draw subtle connections
       particles.forEach((particle, i) => {
         particles.slice(i + 1).forEach((otherParticle) => {
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-
           if (distance < 80) {
             ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 * (1 - distance / 80)})`;
             ctx.lineWidth = 0.5;
@@ -64,22 +54,17 @@ function ParticleSystem({ className }) {
           }
         });
       });
-
       animationFrameId = requestAnimationFrame(animate);
     };
-
     resizeCanvas();
     createParticles();
     animate();
-
     window.addEventListener("resize", resizeCanvas);
-
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
-
   return (
     <canvas
       ref={canvasRef}
@@ -96,7 +81,6 @@ function GlassCard({ children, className = "", delay = 0, variant = "default", .
     subtle: "backdrop-blur-lg bg-white/10 border border-white/20",
     strong: "backdrop-blur-2xl bg-white/25 border border-white/40",
   };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -135,10 +119,8 @@ function HeroSection() {
           backgroundImage: "url('/home-bg.jpg')",
         }}
       ></div>
-
       {/* Background overlay */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
-
       <div className="max-w-4xl mx-auto text-center px-6 relative z-20">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
@@ -174,14 +156,12 @@ function HeroSection() {
             Excellence
           </motion.span>
         </motion.h1>
-
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
           className="w-24 h-[1px] bg-white/60 mx-auto mb-10"
         />
-
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -190,7 +170,6 @@ function HeroSection() {
         >
           Engineering Consultant and Equipment Manufacturer for Cement Plant and Bulk Material Handling Equipments
         </motion.p>
-
         <motion.a
           href="/about"
           initial={{ opacity: 0, y: 30 }}
@@ -203,7 +182,6 @@ function HeroSection() {
           Discover More
         </motion.a>
       </div>
-
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -219,7 +197,6 @@ function HeroSection() {
           <div className="w-1 h-3 bg-white/60 rounded-full mt-2"></div>
         </motion.div>
       </motion.div>
-
       {/* Transition gradient overlay at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 via-slate-50/60 to-transparent z-15" />
     </section>
@@ -233,6 +210,7 @@ function Services() {
       title: "Industrial Machinery",
       description:
         "Custom-engineered machinery tailored to your industrial requirements with precision manufacturing and quality assurance.",
+      backgroundImage: "url('/industrial-machinery.jpg')",
       icon: (
         <svg
           className="w-8 h-8 text-blue-600"
@@ -259,6 +237,7 @@ function Services() {
       title: "Conveyor Solutions",
       description:
         "Advanced belt conveyor systems with comprehensive maintenance services including hot and cold vulcanizing solutions.",
+      backgroundImage: "url('/conveyor-systems.jpg')",
       icon: (
         <svg
           className="w-8 h-8 text-green-600"
@@ -279,6 +258,7 @@ function Services() {
       title: "Process Equipment",
       description:
         "Complete integrated systems for cement manufacturing, marble processing, and mineral handling operations.",
+      backgroundImage: "url('/process-equipment.jpg')",
       icon: (
         <svg
           className="w-8 h-8 text-purple-600"
@@ -296,10 +276,8 @@ function Services() {
       ),
     },
   ];
-
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background gradient and transition overlay */}
@@ -307,7 +285,6 @@ function Services() {
       <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-50 to-transparent z-10" />
       <div className="absolute inset-0">
         <ParticleSystem className="opacity-60" />
-
         {/* Floating geometric shapes */}
         <motion.div
           style={{ y }}
@@ -347,7 +324,6 @@ function Services() {
           />
         </motion.div>
       </div>
-
       <div className="max-w-6xl mx-auto px-6 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -367,7 +343,6 @@ function Services() {
             className="w-20 h-[2px] bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"
           />
         </motion.div>
-
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, i) => (
             <GlassCard
@@ -376,15 +351,24 @@ function Services() {
               variant="strong"
               className="p-8 text-center group relative overflow-hidden"
             >
+              {/* Background image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-2xl"
+                style={{
+                  backgroundImage: service.backgroundImage,
+                }}
+              />
+              
+              {/* Dark overlay for readability */}
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500 rounded-2xl" />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-cyan-400/30 rounded-2xl" />
-
               <motion.div
                 className="relative z-10"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <motion.div
-                  className="w-16 h-16 mx-auto mb-6 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg border border-white/50"
+                  className="w-16 h-16 mx-auto mb-6 bg-white/95 rounded-2xl flex items-center justify-center shadow-lg border border-white/50"
                   whileHover={{
                     rotate: [0, -10, 10, 0],
                     scale: 1.1,
@@ -393,10 +377,10 @@ function Services() {
                 >
                   {service.icon}
                 </motion.div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                <h3 className="text-xl font-semibold text-white mb-4 drop-shadow-lg">
                   {service.title}
                 </h3>
-                <p className="text-gray-700 leading-relaxed font-medium">
+                <p className="text-white/95 leading-relaxed font-medium drop-shadow">
                   {service.description}
                 </p>
               </motion.div>
@@ -408,14 +392,14 @@ function Services() {
   );
 }
 
-// Trusted partners section prepared for building background image
-function TrustedBySection() {
+// Trusted collaborators section prepared for building background image
+function TrustedCollaboratorsSection() {
   const partners = [
     { name: "Fuji Electric", logo: "⚡", color: "from-orange-500 to-red-600" },
     { name: "Johnson Controls", logo: "🏢", color: "from-blue-500 to-cyan-600" },
     { name: "Honeywell", logo: "🔧", color: "from-green-500 to-blue-600" },
+    { name: "Ultratech Cement Ltd", logo: "🏭", color: "from-gray-600 to-slate-700" },
   ];
-
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background image */}
@@ -425,15 +409,12 @@ function TrustedBySection() {
           backgroundImage: "url('/companies.jpg')", // Your building image
         }}
       />
-
       {/* Dark overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-gray-900/70 to-blue-900/80 backdrop-blur-[1px]" />
-
       {/* Particle overlay for depth */}
       <div className="absolute inset-0">
         <ParticleSystem className="opacity-20" />
       </div>
-
       {/* Animated subtle patterns */}
       <motion.div
         className="absolute inset-0 opacity-10"
@@ -453,7 +434,6 @@ function TrustedBySection() {
           `,
         }}
       />
-
       <div className="max-w-6xl mx-auto px-6 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -463,7 +443,7 @@ function TrustedBySection() {
           className="text-center mb-12"
         >
           <h3 className="text-2xl md:text-3xl font-light text-white mb-6 tracking-wider uppercase drop-shadow-lg">
-            Trusted Partners
+            Trusted Collaborators
           </h3>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -473,8 +453,7 @@ function TrustedBySection() {
             className="w-16 h-[2px] bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-8 shadow-lg"
           />
         </motion.div>
-
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
@@ -518,212 +497,212 @@ function TrustedBySection() {
   );
 }
 
-// Clean and consistent vision section
-function CompanyVision() {
-  return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-blue-50 via-slate-50 to-purple-50">
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <ParticleSystem className="opacity-30" />
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              rotate: 360,
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-              scale: { duration: 10, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute top-20 right-20 w-40 h-40 border border-blue-200/40 rounded-full shadow-sm"
-            style={{
-              background: "radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%)",
-            }}
-          />
-          <motion.div
-            animate={{
-              rotate: -360,
-              y: [-10, 10, -10],
-            }}
-            transition={{
-              rotate: { duration: 35, repeat: Infinity, ease: "linear" },
-              y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute bottom-20 left-16 w-32 h-32 border border-purple-200/40 rounded-lg shadow-sm"
-            style={{
-              background:
-                "linear-gradient(45deg, rgba(147,51,234,0.05) 0%, rgba(59,130,246,0.05) 100%)",
-            }}
-          />
-        </div>
-      </div>
+// Redesigned motto and objective sections with less text and better visuals
+function MottoAndObjective() {
+  const mottoItems = [
+    {
+      icon: "🎯",
+      title: "Customer-First Design",
+      text: "Engineering solutions tailored to exceed expectations"
+    },
+    {
+      icon: "🔄",
+      title: "Continuous Innovation", 
+      text: "Always embracing improvements and new possibilities"
+    },
+    {
+      icon: "🤝",
+      title: "Lasting Partnerships",
+      text: "Building relationships that stand the test of time"
+    }
+  ];
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6 tracking-tight">
-            Our Vision
-          </h2>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-20 h-[2px] bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"
-          />
-        </motion.div>
-
-        <div className="max-w-4xl mx-auto">
-          <GlassCard variant="strong" className="p-12 text-center">
-            <motion.p
-              className="text-xl md:text-2xl text-gray-700 font-light leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              To design and develop engineering equipment according to customer
-              specifications, ensuring their fullest satisfaction through{" "}
-              <span className="text-blue-600 font-medium">innovation</span>,{" "}
-              <span className="text-purple-600 font-medium">precision</span>, and{" "}
-              <span className="text-indigo-600 font-medium">unwavering commitment</span>{" "}
-              to excellence.
-            </motion.p>
-          </GlassCard>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Enhanced CTA section with background
-function CallToAction() {
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-gray-900 to-indigo-900" />
-
-      {/* Animated gradient overlay */}
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        animate={{
-          background: [
-            "radial-gradient(circle at 20% 20%, rgba(59,130,246,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(16,185,129,0.4) 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 20%, rgba(147,51,234,0.4) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(236,72,153,0.4) 0%, transparent 50%)",
-            "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.4) 0%, transparent 50%), radial-gradient(circle at 25% 75%, rgba(16,185,129,0.4) 0%, transparent 50%)",
-            "radial-gradient(circle at 20% 20%, rgba(59,130,246,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(16,185,129,0.4) 0%, transparent 50%)",
-          ],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* Particle system */}
-      <div className="absolute inset-0">
-        <ParticleSystem className="opacity-40" />
+      {/* Dynamic gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
+        <motion.div
+          animate={{
+            background: [
+              "radial-gradient(circle at 20% 80%, rgba(59,130,246,0.3) 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 20%, rgba(147,51,234,0.3) 0%, transparent 50%)",
+              "radial-gradient(circle at 40% 40%, rgba(16,185,129,0.3) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 80%, rgba(59,130,246,0.3) 0%, transparent 50%)"
+            ]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute inset-0"
+        />
       </div>
 
-      {/* Geometric floating elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-15">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <ParticleSystem className="opacity-40" />
         <motion.div
           animate={{
             rotate: 360,
             scale: [1, 1.2, 1],
           }}
           transition={{
-            rotate: { duration: 50, repeat: Infinity, ease: "linear" },
+            rotate: { duration: 40, repeat: Infinity, ease: "linear" },
             scale: { duration: 12, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-1/4 left-1/6 w-64 h-64 border border-white/20 rounded-full shadow-lg"
+          className="absolute top-20 right-20 w-64 h-64 border border-white/10 rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)",
-            backdropFilter: "blur(1px)",
+            background: "radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%)",
           }}
         />
         <motion.div
           animate={{
             rotate: -360,
-            scale: [1.2, 1, 1.2],
+            x: [-20, 20, -20],
           }}
           transition={{
-            rotate: { duration: 40, repeat: Infinity, ease: "linear" },
-            scale: { duration: 10, repeat: Infinity, ease: "easeInOut" },
-          }}
-          className="absolute bottom-1/4 right-1/6 w-48 h-48 border border-white/20 rounded-lg shadow-lg"
-          style={{
-            background: "linear-gradient(45deg, rgba(147,51,234,0.1) 0%, rgba(236,72,153,0.1) 100%)",
-            backdropFilter: "blur(1px)",
-          }}
-        />
-        <motion.div
-          animate={{
-            y: [-20, 20, -20],
-            x: [-10, 10, -10],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+            rotate: { duration: 35, repeat: Infinity, ease: "linear" },
             x: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
           }}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-white/10 rounded-full"
+          className="absolute bottom-32 left-20 w-48 h-48 border border-white/10 rounded-lg"
           style={{
-            background: "conic-gradient(from 0deg, rgba(59,130,246,0.05), rgba(147,51,234,0.05), rgba(236,72,153,0.05), rgba(59,130,246,0.05))",
+            background: "linear-gradient(45deg, rgba(255,255,255,0.02) 0%, transparent 100%)",
           }}
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-20">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        {/* Our Philosophy Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-6 tracking-tight drop-shadow-lg">
-            Ready to Transform Operations?
+          <h2 className="text-4xl md:text-6xl font-extralight text-white mb-8 tracking-tight">
+            Our Philosophy
           </h2>
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-20 h-[3px] bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 mx-auto rounded-full"
-            style={{
-              boxShadow: "0 0 20px rgba(59, 130, 246, 0.6)",
-            }}
+            className="w-24 h-[2px] bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-12"
           />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl md:text-2xl text-white/90 font-light max-w-4xl mx-auto leading-relaxed"
+          >
+            Engineering excellence through customer-centric innovation and unwavering commitment to quality
+          </motion.p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="backdrop-blur-2xl bg-white/10 border border-white/20 rounded-3xl p-12 text-center shadow-2xl"
-            style={{
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
-            }}
-          >
-            <motion.p
-              className="text-xl md:text-2xl text-white/95 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
+        {/* Philosophy Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-24">
+          {mottoItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="group"
             >
-              Let's discuss how our <span className="text-blue-300 font-medium">innovative engineering solutions</span> can{" "}
-              optimize your industrial processes and drive your business forward with cutting-edge technology{" "}
-              and <span className="text-purple-300 font-medium">unmatched expertise</span>.
-            </motion.p>
-          </motion.div>
+              <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8 text-center shadow-2xl hover:bg-white/15 hover:border-white/30 transition-all duration-500">
+                <motion.div
+                  className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300"
+                  animate={{
+                    rotate: [0, 5, -5, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    delay: index * 0.5,
+                    ease: "easeInOut",
+                  }}
+                >
+                  {item.icon}
+                </motion.div>
+                <h3 className="text-xl font-semibold text-white mb-4 tracking-wide">
+                  {item.title}
+                </h3>
+                <p className="text-white/80 leading-relaxed font-light">
+                  {item.text}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Objectives Section - Simplified */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-extralight text-white mb-12 tracking-tight">
+            Our Mission
+          </h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="backdrop-blur-2xl bg-white/10 border border-white/20 rounded-3xl p-10 shadow-2xl"
+            >
+              <div className="flex items-center justify-center mb-8">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="text-6xl text-blue-300"
+                >
+                  🚀
+                </motion.div>
+              </div>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="text-xl md:text-2xl text-white/95 font-light leading-relaxed mb-8"
+              >
+                To deliver world-class engineering solutions that drive industrial innovation while fostering lasting partnerships built on quality, reliability, and excellence.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="flex justify-center space-x-8 text-center"
+              >
+                <div className="backdrop-blur-lg bg-white/10 rounded-xl p-4 border border-white/20">
+                  <div className="text-2xl font-light text-blue-300 mb-1">16+</div>
+                  <div className="text-sm text-white/80 font-medium">Years Excellence</div>
+                </div>
+                <div className="backdrop-blur-lg bg-white/10 rounded-xl p-4 border border-white/20">
+                  <div className="text-2xl font-light text-green-300 mb-1">99%</div>
+                  <div className="text-sm text-white/80 font-medium">Client Satisfaction</div>
+                </div>
+                <div className="backdrop-blur-lg bg-white/10 rounded-xl p-4 border border-white/20">
+                  <div className="text-2xl font-light text-purple-300 mb-1">24/7</div>
+                  <div className="text-sm text-white/80 font-medium">Support</div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -741,7 +720,6 @@ export default function Home() {
             transition-duration: 0.01ms !important;
           }
         }
-
         /* Ensure backdrop-filter support */
         @supports not (backdrop-filter: blur(20px)) {
           .backdrop-blur-xl {
@@ -752,12 +730,10 @@ export default function Home() {
           }
         }
       `}</style>
-
       <HeroSection />
       <Services />
-      <TrustedBySection />
-      <CompanyVision />
-      <CallToAction />
+      <TrustedCollaboratorsSection />
+      <MottoAndObjective />
     </div>
   );
 }
