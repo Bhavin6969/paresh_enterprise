@@ -497,212 +497,199 @@ function TrustedCollaboratorsSection() {
   );
 }
 
-// Redesigned motto and objective sections with less text and better visuals
+// Professional and elegant motto and objective sections
 function MottoAndObjective() {
   const mottoItems = [
     {
-      icon: "🎯",
-      title: "Customer-First Design",
-      text: "Engineering solutions tailored to exceed expectations"
+      title: "Customer-Centric Design",
+      text: "Engineering equipment to meet customer specifications with complete satisfaction and precision."
     },
     {
-      icon: "🔄",
-      title: "Continuous Innovation", 
-      text: "Always embracing improvements and new possibilities"
+      title: "Continuous Excellence", 
+      text: "Embracing feedback and improvements to deliver superior quality in every project."
     },
     {
-      icon: "🤝",
+      title: "Quality Leadership",
+      text: "Exceeding customer expectations through rigorous quality standards and processes."
+    },
+    {
       title: "Lasting Partnerships",
-      text: "Building relationships that stand the test of time"
+      text: "Building enduring relationships based on trust, reliability, and mutual growth."
     }
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Dynamic gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
-        <motion.div
-          animate={{
-            background: [
-              "radial-gradient(circle at 20% 80%, rgba(59,130,246,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 20%, rgba(147,51,234,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 40% 40%, rgba(16,185,129,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 80%, rgba(59,130,246,0.3) 0%, transparent 50%)"
-            ]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute inset-0"
-        />
-      </div>
-
-      {/* Animated background elements */}
+    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-stone-100">
+      {/* Subtle background elements */}
       <div className="absolute inset-0">
-        <ParticleSystem className="opacity-40" />
+        <ParticleSystem className="opacity-20" />
         <motion.div
           animate={{
             rotate: 360,
-            scale: [1, 1.2, 1],
           }}
           transition={{
-            rotate: { duration: 40, repeat: Infinity, ease: "linear" },
-            scale: { duration: 12, repeat: Infinity, ease: "easeInOut" },
+            duration: 60,
+            repeat: Infinity,
+            ease: "linear",
           }}
-          className="absolute top-20 right-20 w-64 h-64 border border-white/10 rounded-full"
+          className="absolute top-20 right-20 w-96 h-96 border border-gray-200/30 rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(59,130,246,0.02) 0%, transparent 70%)",
           }}
         />
         <motion.div
           animate={{
             rotate: -360,
-            x: [-20, 20, -20],
           }}
           transition={{
-            rotate: { duration: 35, repeat: Infinity, ease: "linear" },
-            x: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+            duration: 80,
+            repeat: Infinity,
+            ease: "linear",
           }}
-          className="absolute bottom-32 left-20 w-48 h-48 border border-white/10 rounded-lg"
+          className="absolute bottom-20 left-16 w-80 h-80 border border-stone-200/40 rounded-full"
           style={{
-            background: "linear-gradient(45deg, rgba(255,255,255,0.02) 0%, transparent 100%)",
+            background: "radial-gradient(circle, rgba(107,114,128,0.02) 0%, transparent 70%)",
           }}
         />
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Our Philosophy Section */}
+        {/* Our Motto Section */}
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
+              Our Motto
+            </h2>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto"
+            />
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {mottoItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-white/70 backdrop-blur-lg border border-gray-200/50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-blue-500 to-slate-600 rounded-full mt-3"></div>
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-800 mb-3 tracking-wide">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed font-light">
+                      {item.text}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* The Objective Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-extralight text-white mb-8 tracking-tight">
-            Our Philosophy
+          <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
+            The Objective
           </h2>
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-24 h-[2px] bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-12"
+            className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto mb-12"
           />
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-white/90 font-light max-w-4xl mx-auto leading-relaxed"
-          >
-            Engineering excellence through customer-centric innovation and unwavering commitment to quality
-          </motion.p>
         </motion.div>
 
-        {/* Philosophy Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-24">
-          {mottoItems.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group"
-            >
-              <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8 text-center shadow-2xl hover:bg-white/15 hover:border-white/30 transition-all duration-500">
-                <motion.div
-                  className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300"
-                  animate={{
-                    rotate: [0, 5, -5, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: index * 0.5,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {item.icon}
-                </motion.div>
-                <h3 className="text-xl font-semibold text-white mb-4 tracking-wide">
-                  {item.title}
-                </h3>
-                <p className="text-white/80 leading-relaxed font-light">
-                  {item.text}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Objectives Section - Simplified */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-extralight text-white mb-12 tracking-tight">
-            Our Mission
-          </h2>
-          
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="backdrop-blur-2xl bg-white/10 border border-white/20 rounded-3xl p-10 shadow-2xl"
-            >
-              <div className="flex items-center justify-center mb-8">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="text-6xl text-blue-300"
-                >
-                  🚀
-                </motion.div>
-              </div>
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl p-10 shadow-xl"
+          >
+            <div className="space-y-6 text-gray-700">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-lg leading-relaxed font-light"
+              >
+                To market and develop comprehensive engineering solutions tailored to specific industry requirements, 
+                integrating both exceptional quality and unwavering reliability with prompt delivery schedules.
+              </motion.p>
               
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-xl md:text-2xl text-white/95 font-light leading-relaxed mb-8"
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="text-lg leading-relaxed font-light"
               >
-                To deliver world-class engineering solutions that drive industrial innovation while fostering lasting partnerships built on quality, reliability, and excellence.
+                Recognizing the critical importance of efficient replacement solutions, we have established comprehensive 
+                service capabilities spanning diverse industrial sectors, ensuring operational continuity and enhanced productivity.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                className="flex justify-center space-x-8 text-center"
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-slate-50 rounded-xl border border-blue-100/50"
               >
-                <div className="backdrop-blur-lg bg-white/10 rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl font-light text-blue-300 mb-1">16+</div>
-                  <div className="text-sm text-white/80 font-medium">Years Excellence</div>
+                <p className="text-lg leading-relaxed font-medium text-slate-700 italic">
+                  "We believe in expanding our responsibility across all industrial domains, coordinating our expertise 
+                  to deliver efficient and economical solutions. Our customers remain our most valued teachers."
+                </p>
+              </motion.div>
+
+              {/* Statistics */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                className="flex justify-center space-x-12 pt-8 border-t border-gray-200/50"
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-extralight text-slate-600 mb-1">16+</div>
+                  <div className="text-xs uppercase tracking-wider text-gray-500 font-medium">Years</div>
                 </div>
-                <div className="backdrop-blur-lg bg-white/10 rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl font-light text-green-300 mb-1">99%</div>
-                  <div className="text-sm text-white/80 font-medium">Client Satisfaction</div>
+                <div className="text-center">
+                  <div className="text-2xl font-extralight text-slate-600 mb-1">99%</div>
+                  <div className="text-xs uppercase tracking-wider text-gray-500 font-medium">Satisfaction</div>
                 </div>
-                <div className="backdrop-blur-lg bg-white/10 rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl font-light text-purple-300 mb-1">24/7</div>
-                  <div className="text-sm text-white/80 font-medium">Support</div>
+                <div className="text-center">
+                  <div className="text-2xl font-extralight text-slate-600 mb-1">24/7</div>
+                  <div className="text-xs uppercase tracking-wider text-gray-500 font-medium">Support</div>
                 </div>
               </motion.div>
-            </motion.div>
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
