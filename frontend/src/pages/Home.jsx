@@ -141,7 +141,7 @@ function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/public/home-bg.jpg')",
+          backgroundImage: "url('/assets/home-bg.jpg')",
         }}
       />
       {/* Background overlay */}
