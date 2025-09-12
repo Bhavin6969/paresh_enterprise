@@ -437,10 +437,6 @@ export default function Contact() {
                     </li>
                     <li className="flex items-center space-x-3">
                       <div className="w-1.5 h-1.5 bg-emerald-300 rounded-full"></div>
-                      <span>ISO certified quality systems</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <div className="w-1.5 h-1.5 bg-emerald-300 rounded-full"></div>
                       <span>24/7 support & maintenance</span>
                     </li>
                     <li className="flex items-center space-x-3">
