@@ -142,7 +142,7 @@ export default function Services() {
               {
                 title: "Custom Manufacturing",
                 subtitle: "Precision Engineering",
-                image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704909/manufacturing_y6yduj.jpg",
+                image: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757708312/manufacturing_hvvxfa.jpg",
                 desc: "Advanced manufacturing solutions tailored to your specifications. Our state-of-the-art facilities and experienced team ensure every component meets the highest quality standards with precise tolerances and superior finish. From prototyping to full-scale production, we specialize in delivering cost-effective and scalable manufacturing services across diverse industries.",
                 features: ["CNC Machining", "Quality Assurance", "Custom Tooling", "Rapid Prototyping"],
                 highlight: "Industry Leading Precision",

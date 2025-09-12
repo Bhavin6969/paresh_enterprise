@@ -738,7 +738,7 @@ function ObjectiveSection() {
                 <div 
                   className="h-96 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: "url('https://res.cloudinary.com/dykfjyvyw/image/upload/v1757706822/objective_zzaxzn.png')", // Main objective image
+                    backgroundImage: "url('https://res.cloudinary.com/dykfjyvyw/image/upload/v1757708213/objective_fajhds.jpg')", // Main objective image
                   }}
                 />
                 {/* Overlay */}

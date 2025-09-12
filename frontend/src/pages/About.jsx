@@ -165,7 +165,7 @@ const Overview = () => (
         <FadeUp className="lg:col-span-6">
           <div className="aspect-[4/3] bg-stone-200 overflow-hidden rounded-2xl shadow-lg">
             <OptimizedImage 
-              src="/machinery-heritage.jpg"
+              src="https://res.cloudinary.com/dykfjyvyw/image/upload/v1757704913/strategy_hv0qe8.jpg"
               alt="Industrial machinery and engineering team at work"
               className="w-full h-full hover:scale-105 transition-transform duration-700"
             />
@@ -229,7 +229,7 @@ const Legacy = () => {
       year: "2025",
       title: "Future‑Forward",
       text: "AI-assisted maintenance protocols and sustainable manufacturing practices leading the industry.",
-      imageUrl: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757706822/objective_zzaxzn.png"
+      imageUrl: "https://res.cloudinary.com/dykfjyvyw/image/upload/v1757708557/future_dhegks.png"
     },
   ];
 
