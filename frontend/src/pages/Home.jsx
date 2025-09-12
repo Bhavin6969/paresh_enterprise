@@ -534,34 +534,40 @@ function TrustedCollaboratorsSection() {
 
 
 // UPDATED: Professional motto and objective sections with images
+
+// UPDATED: New Motto Section with different content and design
 function MottoAndObjective() {
-  const mottoItems = [
+  // NEW CONTENT - Different from other pages
+  const engineeringPrinciples = [
     {
-      title: "Customer-Centric Design",
-      text: "Engineering equipment to meet customer specifications with complete satisfaction and precision.",
-      image: "url('/customer-design.jpg')",
-      icon: "🎯"
+      title: "Innovation Through Technology",
+      text: "Leveraging cutting-edge technology and advanced engineering principles to create groundbreaking solutions for modern industrial challenges.",
+      image: "url('/innovation-tech.jpg')",
+      number: "01",
+      gradient: "from-blue-600 to-cyan-500"
     },
     {
-      title: "Continuous Excellence",
-      text: "Embracing feedback and improvements to deliver superior quality in every project.",
-      image: "url('/excellence.jpg')",
-      icon: "🏆"
+      title: "Precision Engineering",
+      text: "Every component designed with meticulous attention to detail, ensuring optimal performance and longevity in demanding industrial environments.",
+      image: "url('/precision-engineering.jpg')",
+      number: "02", 
+      gradient: "from-purple-600 to-pink-500"
     },
     {
-      title: "Quality Leadership",
-      text: "Exceeding customer expectations through rigorous quality standards and processes.",
-      image: "url('/quality.jpg')",
-      icon: "⭐"
+      title: "Sustainable Manufacturing",
+      text: "Committed to environmentally responsible practices while delivering efficient solutions that reduce waste and energy consumption.",
+      image: "url('/sustainable-manufacturing.jpg')",
+      number: "03",
+      gradient: "from-green-600 to-emerald-500"
     },
     {
-      title: "Lasting Partnerships",
-      text: "Building enduring relationships based on trust, reliability, and mutual growth.",
-      image: "url('/partnership.jpg')",
-      icon: "🤝"
+      title: "Safety-First Approach",
+      text: "Prioritizing workplace safety and operational security through rigorous testing and compliance with international safety standards.",
+      image: "url('/safety-first.jpg')",
+      number: "04",
+      gradient: "from-orange-600 to-red-500"
     }
   ];
-
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-stone-100">
@@ -582,9 +588,8 @@ function MottoAndObjective() {
         />
       </div>
 
-
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Our Motto Section with Images */}
+        {/* NEW DESIGN: Engineering Principles Section */}
         <div className="mb-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -594,7 +599,7 @@ function MottoAndObjective() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-extralight text-gray-800 mb-6 tracking-tight">
-              Our Motto
+              Engineering Principles
             </h2>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -603,57 +608,161 @@ function MottoAndObjective() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="w-20 h-[1px] bg-gradient-to-r from-gray-400 to-slate-600 mx-auto"
             />
+            <p className="text-lg text-gray-600 font-light mt-6 max-w-3xl mx-auto">
+              Four core principles that drive our engineering excellence and shape every project we undertake
+            </p>
           </motion.div>
 
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {mottoItems.map((item, index) => (
+          {/* NEW DESIGN: Alternating Layout */}
+          <div className="space-y-16">
+            {engineeringPrinciples.map((principle, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group relative overflow-hidden bg-white/70 backdrop-blur-lg border border-gray-200/50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className={`flex flex-col lg:flex-row items-center gap-12 ${
+                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}
               >
-                {/* Background image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                  style={{
-                    backgroundImage: item.image,
-                  }}
-                />
+                {/* Image Section */}
+                <div className="lg:w-1/2">
+                  <motion.div
+                    className="relative group overflow-hidden rounded-2xl shadow-2xl"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div 
+                      className="h-80 bg-cover bg-center bg-no-repeat"
+                      style={{
+                        backgroundImage: principle.image,
+                      }}
+                    />
+                    {/* Gradient overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${principle.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`} />
 
-                {/* Content */}
-                <div className="relative z-10 p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
+                    {/* Number overlay */}
+                    <div className="absolute top-6 left-6">
                       <motion.div
-                        className="w-12 h-12 bg-gradient-to-br from-blue-500 to-slate-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg"
+                        className={`w-16 h-16 rounded-full bg-gradient-to-br ${principle.gradient} flex items-center justify-center text-white font-bold text-xl shadow-lg`}
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ duration: 0.3 }}
                       >
-                        {item.icon}
+                        {principle.number}
                       </motion.div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-medium text-gray-800 mb-3 tracking-wide">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed font-light">
-                        {item.text}
-                      </p>
+
+                    {/* Floating stats or icons */}
+                    <div className="absolute bottom-6 right-6">
+                      <motion.div
+                        className="bg-white/20 backdrop-blur-lg rounded-lg p-3 border border-white/30"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                      >
+                        <div className="w-8 h-8 bg-white/30 rounded-full flex items-center justify-center">
+                          {index === 0 && <span className="text-white text-lg">🔧</span>}
+                          {index === 1 && <span className="text-white text-lg">⚙️</span>}
+                          {index === 2 && <span className="text-white text-lg">🌱</span>}
+                          {index === 3 && <span className="text-white text-lg">🛡️</span>}
+                        </div>
+                      </motion.div>
                     </div>
-                  </div>
+                  </motion.div>
+                </div>
+
+                {/* Content Section */}
+                <div className="lg:w-1/2 space-y-6">
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+                  >
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className={`w-12 h-1 bg-gradient-to-r ${principle.gradient} rounded-full`} />
+                      <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                        Principle {principle.number}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl md:text-3xl font-light text-gray-800 mb-4 tracking-tight">
+                      {principle.title}
+                    </h3>
+
+                    <p className="text-lg leading-relaxed font-light text-gray-600 mb-6">
+                      {principle.text}
+                    </p>
+
+                    {/* Feature highlights */}
+                    <div className="space-y-3">
+                      {index === 0 && (
+                        <div className="flex items-center space-x-3">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                          <span className="text-sm text-gray-600">Advanced CAD/CAM Integration</span>
+                        </div>
+                      )}
+                      {index === 1 && (
+                        <div className="flex items-center space-x-3">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full" />
+                          <span className="text-sm text-gray-600">Tolerance Control ±0.01mm</span>
+                        </div>
+                      )}
+                      {index === 2 && (
+                        <div className="flex items-center space-x-3">
+                          <div className="w-2 h-2 bg-green-500 rounded-full" />
+                          <span className="text-sm text-gray-600">ISO 14001 Certified Processes</span>
+                        </div>
+                      )}
+                      {index === 3 && (
+                        <div className="flex items-center space-x-3">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full" />
+                          <span className="text-sm text-gray-600">Zero-Accident Track Record</span>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Process Flow Indicator */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-16 text-center"
+          >
+            <div className="flex items-center justify-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-blue-500 rounded-full" />
+                <span className="text-sm text-gray-600">Innovation</span>
+              </div>
+              <div className="w-8 h-[1px] bg-gray-300" />
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-purple-500 rounded-full" />
+                <span className="text-sm text-gray-600">Precision</span>
+              </div>
+              <div className="w-8 h-[1px] bg-gray-300" />
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full" />
+                <span className="text-sm text-gray-600">Sustainability</span>
+              </div>
+              <div className="w-8 h-[1px] bg-gray-300" />
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-orange-500 rounded-full" />
+                <span className="text-sm text-gray-600">Safety</span>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4 uppercase tracking-wider">Our Engineering Methodology</p>
+          </motion.div>
         </div>
 
-
-        {/* The Objective Section with Hero Image */}
+        {/* The Objective Section (keeping the same as it's good) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -673,7 +782,6 @@ function MottoAndObjective() {
           />
         </motion.div>
 
-
         <div className="max-w-6xl mx-auto">
           {/* Split layout with image and content */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -689,7 +797,7 @@ function MottoAndObjective() {
                 <div 
                   className="h-96 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: "url('/objective-hero.jpg')", // Main objective image
+                    backgroundImage: "url('/objective-hero.jpg')",
                   }}
                 />
                 {/* Overlay */}
@@ -752,7 +860,6 @@ function MottoAndObjective() {
                 integrating both exceptional quality and unwavering reliability with prompt delivery schedules.
               </motion.p>
 
-
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -763,7 +870,6 @@ function MottoAndObjective() {
                 Recognizing the critical importance of efficient replacement solutions, we have established comprehensive 
                 service capabilities spanning diverse industrial sectors, ensuring operational continuity and enhanced productivity.
               </motion.p>
-
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -803,150 +909,5 @@ function MottoAndObjective() {
         </div>
       </div>
     </section>
-  );
-}
-
-
-
-// FIXED: Professional CTA Section with correct navigation
-function CTASection() {
-  return (
-    <section className="relative overflow-hidden">
-      {/* Navy blue background matching footer style */}
-      <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900">
-        {/* Subtle pattern overlay */}
-        <div 
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 30%, rgba(59,130,246,0.3) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(147,51,234,0.2) 0%, transparent 50%)
-            `,
-          }}
-        />
-
-
-        {/* Particles for depth */}
-        <div className="absolute inset-0">
-          <ParticleSystem className="opacity-20" />
-        </div>
-
-
-        <div className="max-w-4xl mx-auto px-6 py-20 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            {/* Main heading */}
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl md:text-4xl font-light text-white mb-6 tracking-tight"
-            >
-              Ready to strategize your engineering solutions?
-            </motion.h2>
-
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-300 font-light mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
-              Get expert consultation for your industrial equipment requirements.
-            </motion.p>
-
-
-            {/* FIXED CTA Button - using proper React Router navigation */}
-            <motion.button
-              onClick={() => {
-                // Use window.location for navigation or React Router's navigate
-                // Replace this with your router's navigation method
-                window.location.href = '#contact'; // or use React Router's navigate('/contact')
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 30px rgba(255,255,255,0.2)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block bg-white text-slate-900 px-8 py-4 text-sm font-medium tracking-wider uppercase hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl rounded-sm cursor-pointer"
-            >
-              Get Started
-            </motion.button>
-
-
-            {/* Alternative: If you have React Router, use this instead */}
-            {/* 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Link
-                to="/contact"
-                className="inline-block bg-white text-slate-900 px-8 py-4 text-sm font-medium tracking-wider uppercase hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl rounded-sm"
-              >
-                Get Started
-              </Link>
-            </motion.div>
-            */}
-
-
-            {/* Decorative line */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="w-24 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto mt-12"
-            />
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
-export default function Home() {
-  return (
-    <div className="relative">
-      {/* Add reduced motion support */}
-      <style jsx global>{`
-        @media (prefers-reduced-motion: reduce) {
-          * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-        /* Ensure backdrop-filter support */
-        @supports not (backdrop-filter: blur(20px)) {
-          .backdrop-blur-xl {
-            background-color: rgba(255, 255, 255, 0.25) !important;
-          }
-          .backdrop-blur-2xl {
-            background-color: rgba(255, 255, 255, 0.3) !important;
-          }
-        }
-      `}</style>
-      <HeroSection />
-      <Services />
-      <TrustedCollaboratorsSection />
-      <MottoAndObjective />
-      <CTASection />
-    </div>
   );
 }
