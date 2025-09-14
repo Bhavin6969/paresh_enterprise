@@ -9,11 +9,9 @@ import traceback
 # ✅ Load env variables
 MONGO_URL = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
 DB_NAME = os.getenv("DATABASE_NAME", "paresh_enterprises")
-EMAIL_USER = os.getenv("EMAIL_USER", "pareshdwivedi24@gmail.com")
-
-EMAIL_PASS = os.getenv("EMAIL_PASS", "")
-EMAIL_PASS = os.getenv("EMAIL_PASS", "beyc kjeb zkui vkup")
-OWNER_EMAIL = os.getenv("OWNER_EMAIL", "bhavinjoshi817@gmail.com")
+EMAIL_USER =  "pareshdwivedi24@gmail.com"
+EMAIL_PASS = "beyc kjeb zkui vkup"
+OWNER_EMAIL = "bhavinjoshi817@gmail.com"
 
 # ✅ MongoDB connection
 client = MongoClient(MONGO_URL)
