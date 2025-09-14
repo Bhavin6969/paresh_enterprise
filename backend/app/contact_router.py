@@ -9,7 +9,7 @@ from sendgrid.helpers.mail import Mail
 # ✅ Load env variables
 MONGO_URL = "mongodb://localhost:27017"
 DB_NAME = "paresh_enterprises"
-SENDGRID_API_KEY = "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"
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 OWNER_EMAIL = "bhavinjoshi817@gmail.com"
 SENDER_EMAIL = "pareshdwivedi24@gmail.com"
 
