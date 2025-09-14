@@ -2,26 +2,24 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, EmailStr
 from pymongo import MongoClient
 import os
-import smtplib
-from email.mime.text import MIMEText
 import traceback
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 # ✅ Load env variables
-MONGO_URL = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
-DB_NAME = os.getenv("DATABASE_NAME", "paresh_enterprises")
-EMAIL_USER =  "pareshdwivedi24@gmail.com"
-EMAIL_PASS = "beyc kjeb zkui vkup"
+MONGO_URL = "mongodb://localhost:27017"
+DB_NAME = "paresh_enterprises"
+SENDGRID_API_KEY = "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"
 OWNER_EMAIL = "bhavinjoshi817@gmail.com"
+SENDER_EMAIL = "pareshdwivedi24@gmail.com"
 
 # ✅ MongoDB connection
 client = MongoClient(MONGO_URL)
 db = client[DB_NAME]
 contacts_collection = db["contacts"]
 
-# ✅ FastAPI Router
 router = APIRouter()
 
-# ✅ Expanded Request schema
 class ContactForm(BaseModel):
     name: str
     email: EmailStr
@@ -30,7 +28,7 @@ class ContactForm(BaseModel):
     phone: str | None = None
     company: str | None = None
 
-# ✅ Email sender function
+# ✅ Email sender function (SendGrid)
 def send_email(form: ContactForm):
     try:
         body = (
@@ -43,21 +41,21 @@ def send_email(form: ContactForm):
             f"💬 Message:\n{form.message}"
         )
 
-        msg = MIMEText(body)
-        msg["Subject"] = "New Contact Form Submission"
-        msg["From"] = EMAIL_USER
-        msg["To"] = OWNER_EMAIL
+        message = Mail(
+            from_email=SENDER_EMAIL,
+            to_emails=OWNER_EMAIL,
+            subject="New Contact Form Submission",
+            plain_text_content=body,
+        )
 
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(EMAIL_USER, EMAIL_PASS)
-            server.send_message(msg)
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        sg.send(message)
 
-        print("✅ Email sent successfully")
+        print("✅ Email sent successfully via SendGrid")
     except Exception as e:
         print("❌ Email sending failed:", e)
         traceback.print_exc()
 
-# ✅ Route
 @router.post("/contact")
 async def submit_contact(form: ContactForm):
     try:
