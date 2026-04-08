@@ -31,6 +31,6 @@ COPY backend/app ./app
 
 # Copy frontend build output into backend static folder
 COPY --from=frontend-build /frontend/dist ./app/static
-
+ENV PORT=8000
 # Start FastAPI
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port $PORT"]
