@@ -14,8 +14,5 @@ RUN pip install --no-cache-dir --upgrade pip \
 # Copy the rest of the backend code
 COPY backend/app ./app
 
-# Expose port
-EXPOSE 8000
-
 # Run Uvicorn with proper module path
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port $PORT"]
