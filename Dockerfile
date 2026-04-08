@@ -1,3 +1,4 @@
+RUN echo ">>> THIS IS THE CORRECT DOCKERFILE <<<"
 # ---------- Stage 1: Frontend Build ----------
 FROM node:20-alpine AS frontend-build
 
